@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ea7b4b">
+    <title>Street Alert</title>
+    <link rel="stylesheet" href="style/index.css">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="login_signup/images/logo192.png">
+    <script src="/index.js"></script>
+    <script src="js/home.js"></script>
+</head>
+<body>
+    <div class="main-container">
+        <h1>STREET ALERT</h1>
+        <div class="content-container">
+            <p>BENVENUTO</p>
+			<div class="button-grid">
+               <a href="https://streetalert.altervista.org/Report/report.html">
+                  <button>Button 1</button>
+               </a>
+			   <a href="">
+                   <button>Button 2</button>
+               </a>
+               <a href="https://streetalert.altervista.org/map/src/map.html"> 
+                   <button>Button 3</button>
+               </a>
+               <a href="https://streetalert.altervista.org/map/src/table.html">
+				   <button>Button 4</button>
+               </a>
+               <button onclick="logout()">LOGOUT</button>
+			</div>
+        </div>
+    </div>
+	<script type="module">
+      import Typebot from 'https://cdn.jsdelivr.net/npm/@typebot.io/js@0.2/dist/web.js'
+
+      Typebot.initBubble({
+        typebot: "faq-5ddza5g",
+        previewMessage: {
+          message: "Ciao Sono L'assistente di Street Alert",
+          autoShowDelay: 5000,
+          avatarUrl:
+          "https://s3.typebot.io/public/workspaces/clrjbtqg2002yve39e1r4pin5/typebots/clrjbuse2000d13fq05ddza5g/hostAvatar?v=1705590410685",
+        },
+        theme: {
+          button: { backgroundColor: "#5684f0" },
+          chatWindow: { backgroundColor: "#DE8031" },
+        }
+      });
+    </script>
+    <script>
+        window.onload = function(){
+            if (!localStorage.getItem('id'))
+                window.location.href = "../index.html"
+        }
+    </script>
+</body>
+</html>
