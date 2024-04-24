@@ -95,18 +95,18 @@ function getLocation() {
         x.innerHTML = "<br>Geolocation is not supported by this browser."
 }
 
-function showPosition(position) {
+async function showPosition(position) {
     gps.lat = position.coords.latitude
     gps.lon = position.coords.longitude
     gps.error = (position.coords.accuracy > 999.9) ? 999.9 : position.coords.accuracy
-    gps.municipality = getMunicipality()
+    gps.municipality = await getMunicipality()
     
     console.log("municipality: " + gps.municipality)
 
     httpRequest(null, "report")
 }
 
-function getMunicipality() {
+async function getMunicipality() {
     return new Promise((resolve, reject) => {
         maptilersdk.geocoding.reverse([gps.lon, gps.lat])
             .then(result => {
