@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ea7b4b">
+    <link rel="manifest" href="/manifest.json">
+    <script src="index.js"></script>
+</head>
+<body>
+	<h1>INDEX</h1>
+    <script>
+    	window.onload = function(){
+            if (localStorage.getItem('id'))
+                window.location.href = "web_app/home.html"
+            else
+                window.location.href = "login_signup/index.html"
+    	}
+    </script>
+</body>
+</html>

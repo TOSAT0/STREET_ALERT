@@ -1,0 +1,29 @@
+stato - italia
+	admin level: 2
+	search rank: 4
+	address rank: 4 (country)
+
+regione - veneto
+	admin level: 4
+	search rank: 8
+	address rank: 8 (state)
+
+provincia - treviso
+	admin level: 6
+	search rank: 12
+	address rank: 12 (country)
+
+comune - treviso
+	admin level: 8
+	search rank: 16
+	address rank: 16 (city / town / village)
+
+comune - zero branco
+	admin level: 8
+	search rank: 16
+	address rank: 16 (city / town / village)
+
+frazione - sant'alberto
+	admin level: -
+	search rank: 19
+	address rank: 18 (city / village district)

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify</title>
+    <link rel="stylesheet" href="style/verify.css">
+</head>
+<body>
+    <div class="form" style="text-align: center;">
+    	<h2>Verifica Il Tuo Account</h2>
+     	<p>Ti abbiamo inviato un codice di verifica a 4 cifre, inseriscile qui sotto per confermare la tua email...</p>
+      	<div class="fields-input">
+        	<input type="number" id="otp1" name="otp1" class="otp_field" placeholder="0" min="0" max="9" required onpaste="false">
+        	<input type="number" id="otp2" name="otp2" class="otp_field" placeholder="0" min="0" max="9" required onpaste="false">
+        	<input type="number" id="otp3" name="otp3" class="otp_field" placeholder="0" min="0" max="9" required onpaste="false">
+        	<input type="number" id="otp4" name="otp4" class="otp_field" placeholder="0" min="0" max="9" required onpaste="false">
+      	</div>
+      	<div class="submit">
+        	<button class="button" name="verifica" onclick="verify()">Verifica</button>
+      	</div>
+      	<div class="error"></div>
+  	</div>
+    
+    <script>
+        window.onload = function(){
+            if (!sessionStorage.getItem('verify'))
+                window.location.href = "../index.html"
+        }
+    </script>
+	<script src="js/verify.js"></script>
+</body>
+</html>
