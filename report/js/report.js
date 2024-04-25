@@ -51,7 +51,7 @@ xhttp.onreadystatechange = function() {
 }
 
 function getTypes(){
-	xhttp.open("POST", "../php/types.php", true)
+	xhttp.open("POST", "php/types.php", true)
     xhttp.setRequestHeader("Cache-Control", "no-cache")
     xhttp.send()
 }
@@ -136,7 +136,7 @@ function httpRequest(id_alert, status){
     formData.append("id_alert", id_alert)
     formData.append("status", status)
 
-    xhttp.open("POST", "../php/report.php", true)
+    xhttp.open("POST", "php/report.php", true)
     xhttp.setRequestHeader("Cache-Control", "no-cache")
     xhttp.send(formData)
 }
@@ -149,7 +149,7 @@ function uploadImage() {
     formData.append("image", file)
     formData.append("photo", photo)
 
-    xhttp.open("POST", "../php/upload.php", true)
+    xhttp.open("POST", "php/upload.php", true)
     xhttp.setRequestHeader("Cache-Control", "no-cache")
     xhttp.send(formData)
 }
