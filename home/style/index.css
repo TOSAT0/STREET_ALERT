@@ -55,25 +55,8 @@ body {
     animation-name: fadeIn;
     animation-duration: 0.4s;
 }
-#myBtn {
-    display: block;
-     
-}
-@media(max-width:640px) {
-    #myBtn {
-        display: block;
-        position: absolute;
-        bottom: 50%;
-        background-color: #ff6600;
-        border: 1px solid #ec6f6f;
-        height: 2.5rem;
-        width: 2.5rem;
-        border-radius: 50%;
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: 22px;
-    }
-}
+
+
 .modal-content {
     position: fixed;
     bottom: 0;

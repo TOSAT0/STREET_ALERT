@@ -7,18 +7,19 @@ if("serviceWorker" in navigator){
         console.log(error);
     })
 }
+import { placeMarkers } from "./segnalazioni.js";
+import { createMap } from "./map.js";
+
+export const map = createMap()
+
+placeMarkers(map)
+
 var modal = document.getElementById("myModal");
-var btn = document.getElementById("myBtn");
-var span = document.getElementsByClassName("close")[0];
-function openNav() {
-modal.style.display= "block";
+export function openNav() {
+    modal.style.display= "block";
 }
 window.onclick= function (event) {
-if (event.target == modal) {
-    modal.style.display = "none";
-}
-}
-
-function closeNav() {
-modal.style.display = "none";
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
 }
