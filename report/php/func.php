@@ -10,11 +10,11 @@
     }
 
     // ADD A NEW ALERT TO THE ALERTS TABLE
-    function report($photo, $lat, $lon, $error, $description, $municipality, $id_user, $id_type){
+    function report($photo, $lat, $lon, $error, $description, $id_municipality, $id_user, $id_type){
         $conn = connect();
 
         try{
-            $conn->query("INSERT INTO alerts VALUES(NULL, '$photo', NOW(), $lat, $lon, $error, '$description', 'NEW', DEFAULT, '$municipality', $id_user, $id_type)");
+            $conn->query("INSERT INTO alerts VALUES(NULL, '$photo', NOW(), NULL, $lat, $lon, $error, '$description', 'NEW', DEFAULT, $id_user, $id_type, $id_municipality)");
         }catch(Exception $e){
             die("report");
         }
@@ -91,6 +91,19 @@
             $conn->query("INSERT INTO old_alerts VALUES($id_alert,'".$alert['date']."',".$alert['lat'].",".$alert['lon'].",'".$alert['description']."',".$alert['id_user'].",".$alert['id_type'].")");
         } catch(Exception $e){
             die("move_alert");
+        }
+    }
+
+    // GET ID MUNICIPALITY
+    function id_municipality($municipality){
+        $conn = connect();
+
+        try{
+            $res = $conn->query("SELECT id_municipality FROM municipalities WHERE name = '$municipality'");
+            $row = $res->fetch_assoc();
+            return $row['id_municipality'];
+        }catch(Exeption $e){
+            die("id_municipality");
         }
     }
 
