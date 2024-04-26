@@ -68,7 +68,7 @@ export function placeMarkers(map)
 
         for (let i = 0; i < markers.length; i++)
         {
-            markers[i].marker.getElement().addEventListener('click', (e) => openNav())
+            markers[i].marker.getElement().addEventListener('click', (e) => openNav(markers[i]))
         }
     }
 }
