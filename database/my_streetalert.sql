@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Apr 27, 2024 alle 15:32
+-- Creato il: Apr 27, 2024 alle 17:55
 -- Versione del server: 10.4.32-MariaDB
 -- Versione PHP: 8.2.12
 
@@ -48,14 +48,11 @@ CREATE TABLE `alerts` (
 --
 
 INSERT INTO `alerts` (`id_alert`, `photo`, `start_date`, `end_date`, `lat`, `lon`, `error`, `description`, `state`, `times`, `id_user`, `id_type`, `id_municipality`) VALUES
-(359, 'PHOTO', '2024-04-02 00:00:00', NULL, 1.000000, 3.000000, 4.0, 'ciao', 'SOLVED', 2, 1, 3, 1),
-(362, 'PHOTO', '2024-07-02 00:00:00', NULL, 3.000000, 1.000000, 4.0, 'ciao', 'SOLVED', 13, 1, 12, 1),
+(359, 'PHOTO', '2024-04-02 00:00:00', '2024-04-27 17:47:07', 1.000000, 3.000000, 4.0, 'ciao', 'SOLVED', 2, 1, 3, 1),
+(362, 'PHOTO', '2024-02-01 00:00:00', '2024-04-27 17:40:55', 3.000000, 1.000000, 4.0, 'ciao', 'SOLVED', 13, 1, 12, 1),
 (363, 'uploads/0_lsan4v9omqvi4wup5lsan4v9oqtg4lfkpulsan4v9osizdc3zzl.webp', '2024-02-06 18:34:42', NULL, 45.464203, 9.189982, 999.9, 'asdasd', 'NEW', 1, 1, 1, 1),
-(364, 'uploads/0_lsd2kb6oo1pj29kbalsd2kb6oaos4c71etlsd2kb6okb8q65rpj.webp', '2024-02-08 11:23:00', NULL, 45.398399, 12.484900, 1.0, 'Rappresentante di estrema destra', 'NEW', 1, 1, 8, 1),
-(365, 'uploads/0_lv3rsofk7jbnam3gqlv3rsofk7czcbpma0lv3rsofk2luv7j00b.webp', '2024-04-17 14:16:17', NULL, 45.692169, 12.268773, 999.9, 'oijhubgyvftcd', 'NEW', 1, 1, 4, 1),
-(366, 'uploads/0_lv3u49wkvo5ezovd9lv3u49wk84u9kproelv3u49wkcqmigwrgu.webp', '2024-04-17 15:15:36', NULL, 45.692169, 12.268773, 999.9, '', 'NEW', 2, 1, 0, 1),
-(367, 'uploads/0_lv3u9ca0h07zstr5mlv3u9ca085ygcvmr8lv3u9ca07ew5k3ete.webp', '2024-04-17 15:21:23', NULL, 45.692169, 12.268773, 999.9, '', 'NEW', 1, 1, 0, 1),
-(368, 'uploads/0_lv3utgqjs7ob71kyalv3utgqjiq2dto4oklv3utgqjxlph4f2nv.webp', '2024-04-17 15:34:25', NULL, 45.692169, 12.268773, 999.9, '', 'NEW', 1, 1, 0, 1);
+(364, 'uploads/0_lsd2kb6oo1pj29kbalsd2kb6oaos4c71etlsd2kb6okb8q65rpj.webp', '2024-02-08 11:23:00', '2024-04-27 17:41:44', 45.398399, 12.484900, 1.0, 'Rappresentante di estrema destra', 'SOLVED', 1, 1, 8, 1),
+(365, 'uploads/0_lv3rsofk7jbnam3gqlv3rsofk7czcbpma0lv3rsofk2luv7j00b.webp', '2024-04-17 14:16:17', NULL, 45.692169, 12.268773, 999.9, 'oijhubgyvftcd', 'SEEN', 1, 1, 4, 1);
 
 -- --------------------------------------------------------
 
