@@ -32,9 +32,21 @@ p {
 }
 
 img {
-    border: 1px solid black;
-    width:200px;
-    height:200px;
+    width:350px;
+    height:350px;
+   
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    font-size: 20px;
+}
+
+ul {
+    list-style: none;
 }
 
 /* classi utili */
@@ -46,7 +58,8 @@ img {
     
 }
 
-.signup-container {
+
+.signin-container {
     margin-inline: auto;
     padding-inline: var(--padding-inline-sect);
     overflow: hidden;
@@ -57,13 +70,10 @@ img {
     height: 450px;
     width: 450px;
     text-align: center;
+    
 }
 
-.cell:nth-child(1) {
-    grid-column-start: 2; 
-    grid-column-end: 2;
-}
-.signup-form {
+.signin-form {
     flex-direction: column;
     display: flex;
     margin-top: 40px;
@@ -71,14 +81,20 @@ img {
 }
 
 .decoration {
-   border: 1px solid black;
-   height: 450px;
-   width: 450px;
-   display: flex;
-   justify-content: center;
-   flex-direction: column;
-   align-items: center;
+    height: 700px;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color:white; 
+    margin-bottom: 80px;
 }
+
+.list-check {
+    font-size: 15px;
+}
+
 
 /* id */
 
@@ -91,12 +107,11 @@ img {
 }
 
 #username-field:focus {
-    border: 2px;
-    border-color:  var(--accent-color);
+    border-color: var(--accent-color);
 }
 
 #password-field:focus {
-    border: 2px  var(--accent-color);
+    border-color: var(--accent-color);
 }
 
 #signin-button{
@@ -120,8 +135,4 @@ img {
 #signin-button:hover {
     background-color: white;
     color: var(--primary-text-color);
-}
-
-#list {
-    
 }
