@@ -17,6 +17,10 @@
     #username-field, #password-field {
         width: 400px;
     }
+
+    .toggle-password {
+        width: 400px;
+    }
     
 
     .decoration {

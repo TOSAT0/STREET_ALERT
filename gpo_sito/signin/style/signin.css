@@ -76,7 +76,7 @@ ul {
 .signin-form {
     flex-direction: column;
     display: flex;
-    margin-top: 40px;
+    margin-top: 30px;
     align-items: center;
 }
 
@@ -95,6 +95,13 @@ ul {
     font-size: 15px;
 }
 
+.toggle-password{
+    display: flex;
+    justify-content: start;
+    width: 300px;
+    margin-inline: auto;
+    padding-top: 10px;
+}
 
 /* id */
 
@@ -118,7 +125,7 @@ ul {
     font-family: 'Poppins', sans-serif;
     padding: 10px;
     border-radius: 10px;
-    width: 100px;
+    width: 130px;
     height: 50px;
     border: 1px solid var(--primary-text-color);
     background-color: var(--primary-text-color);

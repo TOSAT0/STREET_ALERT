@@ -23,14 +23,31 @@
         <div class="signin-container cell">
             <h2> Accedi </h2>
             <p> Non hai un account ? <a href="../signup/signup.html"> Registrati</a></p>
-                <form class="signin-form ">
-                    <label for="username" > Username</label>
+                <form class="signin-form">
+                    <label for="username">Mail</label>
                     <input type="text" name="username" placeholder="ex : prova123@gmail.com" id="username-field"/>
-                    <label for="passowrd" style="margin-top: 20px;"> Password</label>
+                    <label for="password" style="margin-top: 20px;"> Password</label>
                     <input type="password" name="password" id="password-field"/>
-                    <a href="../index.html" id="signin-button">Sign In</a>
+                    <div class="toggle-password">
+                        <input type="checkbox" name="toggle_password" id="toggle_password" onclick="show_password()"> 
+                        <label for="toggle_password" style="padding-left: 10px; font-size: 15px;"> Show Password</label>
+                    </div>
+                        <a href="../index.html" id="signin-button">Sign In</a>
                 </form>
         </div>
     </div>
     <script src="https://kit.fontawesome.com/c1fc3d2826.js" crossorigin="anonymous"></script>
+
+    <script>
+        function show_password(){
+            var password = document.getElementById("password-field");
+            
+            if(password.type === "password")
+                password.type = "text";
+            else
+                password.type = "password";
+
+        }
+
+    </script>
 </body>
