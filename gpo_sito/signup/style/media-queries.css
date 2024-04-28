@@ -14,14 +14,19 @@
         text-align: center;
     }
 
-    #username-field, #password-field {
+    #username-field, .password-field {
         width: 400px;
     }
 
     .toggle-password {
         width: 400px;
     }
+
     
+    #criteria{
+        width: 400px;
+        text-align: center;
+    }
 
     .decoration {
         width: 100%;  

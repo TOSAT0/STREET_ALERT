@@ -41,9 +41,6 @@ a {
     text-decoration: none;
 }
 
-li {
-    font-size: 20px;
-}
 
 ul {
     list-style: none;
@@ -67,7 +64,7 @@ ul {
     display: flex;
     background-color: white;
     border-radius: 16px;
-    height: 450px;
+    height: 600px;
     width: 450px;
     text-align: center;
     
@@ -91,11 +88,11 @@ ul {
     margin-bottom: 80px;
 }
 
-.list-check {
-    font-size: 15px;
+.list {
+    font-size: 20px;
 }
 
-.toggle-password{
+.toggle-password {
     display: flex;
     justify-content: start;
     width: 300px;
@@ -103,9 +100,15 @@ ul {
     padding-top: 10px;
 }
 
+#criteria {
+    font-size: 11px;
+    color: gray;
+    text-align: left;
+    width: 300px;
+}
 /* id */
 
-#username-field, #password-field {
+#username-field, .password-field {
     padding: 10px 10px 10px 10px;
     border-radius: 10px;
     border: 1px solid gray;
@@ -117,7 +120,7 @@ ul {
     border-color: var(--accent-color);
 }
 
-#password-field:focus {
+.password-field:focus {
     border-color: var(--accent-color);
 }
 

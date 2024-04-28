@@ -13,40 +13,128 @@
         <div class="decoration cell">
             <img src="img/Street Alert.png" alt="project_logo">
             <ul>
-                <li><i class="fa-solid fa-circle-check"></i>  <span class="list">E figo molto</span> </li>
-                <li><i class="fa-solid fa-circle-check"></i>  <span class="list">Funziona (si spera)</span> </li>
-                <li><i class="fa-solid fa-circle-check"></i>  <span class="list">Manca il register</span> </li>
-                <li><i class="fa-solid fa-circle-check"></i>  <span class="list">Conviene a tutti</span> </li>
-                <li><i class="fa-solid fa-circle-check"></i>  <span class="list">Se paghi vedi le segnalazioni</span> </li>
+                <li><i class="fa-solid fa-circle-check list"></i>  <span class="list">E figo molto</span> </li>
+                <li><i class="fa-solid fa-circle-check list"></i>  <span class="list">Funziona (si spera)</span> </li>
+                <li><i class="fa-solid fa-circle-check list"></i>  <span class="list">Manca il register</span> </li>
+                <li><i class="fa-solid fa-circle-check list"></i>  <span class="list">Conviene a tutti</span> </li>
+                <li><i class="fa-solid fa-circle-check list"></i>  <span class="list">Se paghi vedi le segnalazioni</span> </li>
             </ul>
         </div>
         <div class="signup-container cell">
             <h2> Registrati </h2>
             <p> Possiedi un account ? <a href="../signin/signin.html"> Accedi </a></p>
                 <form class="signup-form">
-                    <label for="username">Mail</label>
+                    <label for="username">Email</label>
                     <input type="text" name="username" placeholder="ex : prova123@gmail.com" id="username-field"/>
                     <label for="password" style="margin-top: 20px;"> Password</label>
-                    <input type="password" name="password" id="password-field"/>
+                    <input type="password" name="password" class="password-field"  onclick="show_criteria()"/>
+                    <label for="password" style="margin-top: 20px;"> Conferma Password</label>
+                    <input type="password" name="password" class="password-field" />
+                    <ul id="criteria">
+                        <li id="color-length"> La password deve essere lunga almeno 12 caratteri<li>
+                        <li id="char-color"> La password deve contenere un carattere speciale<li>
+                        <li id="same-color"> Le password devono combaciare<li></li>
+                        <li id="field-color"> Compilare tutti i campi<li></li>
+                    </ul>
                     <div class="toggle-password">
                         <input type="checkbox" name="toggle_password" id="toggle_password" onclick="show_password()"> 
-                        <label for="toggle_password" style="padding-left: 10px; font-size: 15px;"> Show Password</label>
+                        <label for="toggle_password" style="padding-left: 10px; font-size: 15px;"> Show Passwords</label>
                     </div>
-                        <a href="../index.html" id="signup-button">Sign Up</a>
+                        <a href="#" id="signup-button">Sign Up</a>
                 </form>
         </div>
     </div>
     <script src="https://kit.fontawesome.com/c1fc3d2826.js" crossorigin="anonymous"></script>
 
     <script>
-        function show_password(){
-            var password = document.getElementById("password-field");
-            
-            if(password.type === "password")
-                password.type = "text";
-            else
-                password.type = "password";
+        var criteria = document.getElementById("criteria");
+        var password = document.querySelectorAll(".password-field");
+        var p_length = document.getElementById("color-length");
+        var p_char = document.getElementById("char-color");
+        var p_same = document.getElementById("same-color");
+        var p_field = document.getElementById("field-color");
+            p_field.style.color = "red";
+        var email = document.getElementById("username-field");
+        var signup = document.getElementById("signup-button");
+        let valid_inputs = false;
+        let valid_password = false;
 
+
+        window.onload = function hide_criteria(){ 
+            p_char.style.display = "none"
+            p_length.style.display = "none" 
+            p_same.style.display = "none" 
+            p_field.style.display = "none"
+        }
+
+        password[0].addEventListener('input', () => check_password(password[0].value) )
+        password[1].addEventListener('input', () => check_same_password(password[1].value) )
+        signup.addEventListener('click', () => submit(email.value,password[0].value))
+
+        function show_password(){   
+            var i = 0;
+
+            while( i < password.length){
+                if(password[i].type === "password")
+                    password[i].type = "text"
+                else
+                    password[i].type = "password"
+                i++;
+            }
+        }
+
+        function show_criteria(){
+            p_char.style.display = "block"
+            p_length.style.display = "block" 
+        }
+
+        function check_password(password){
+            var specialCharacters = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/;
+            var simbolo = false;
+            var lunghezza = false;
+
+            if (!specialCharacters.test(password)) {
+                p_char.style.color = "red"
+                simbolo = false;
+            } else {
+                p_char.style.color = "green"
+                simbolo = true;
+            }
+
+            if (password.length < 12) {
+                p_length.style.color = "red"
+                lunghezza = false;
+            } else {
+                p_length.style.color = "green"
+                lunghezza = true;
+            }
+
+            if (simbolo & lunghezza){
+                valid_inputs = true;
+            }
+        }
+
+        function check_same_password(password1){
+
+            p_same.style.display = "block"
+            var same_input = false;
+            if(password1 === password[0].value){
+                p_same.style.color = "green"
+                same_input = true;
+            } else{
+                p_same.style.color = "red"
+            }
+            
+            if(same_input)
+                valid_password = true;
+
+        }
+
+        function submit(email,password){
+            if(email == "" || password == "")
+                p_field.style.display = "block"
+
+                console.log(email)
         }
 
     </script>
