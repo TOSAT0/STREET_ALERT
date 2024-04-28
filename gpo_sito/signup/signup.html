@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <link rel="stylesheet" href="style/signup.css">
+    <link rel="stylesheet" href="style/media-queries.css">
+</head>
+<body>
+    <div class="content">
+        <div class="decoration cell">
+            <img src="img/Street Alert.png" alt="project_logo">
+            <ul>
+                <li><i class="fa-solid fa-circle-check"></i>  <span class="list">E figo molto</span> </li>
+                <li><i class="fa-solid fa-circle-check"></i>  <span class="list">Funziona (si spera)</span> </li>
+                <li><i class="fa-solid fa-circle-check"></i>  <span class="list">Manca il register</span> </li>
+                <li><i class="fa-solid fa-circle-check"></i>  <span class="list">Conviene a tutti</span> </li>
+                <li><i class="fa-solid fa-circle-check"></i>  <span class="list">Se paghi vedi le segnalazioni</span> </li>
+            </ul>
+        </div>
+        <div class="signup-container cell">
+            <h2> Registrati </h2>
+            <p> Possiedi un account ? <a href="../signin/signin.html"> Accedi </a></p>
+                <form class="signup-form">
+                    <label for="username">Mail</label>
+                    <input type="text" name="username" placeholder="ex : prova123@gmail.com" id="username-field"/>
+                    <label for="password" style="margin-top: 20px;"> Password</label>
+                    <input type="password" name="password" id="password-field"/>
+                    <div class="toggle-password">
+                        <input type="checkbox" name="toggle_password" id="toggle_password" onclick="show_password()"> 
+                        <label for="toggle_password" style="padding-left: 10px; font-size: 15px;"> Show Password</label>
+                    </div>
+                        <a href="../index.html" id="signup-button">Sign Up</a>
+                </form>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/c1fc3d2826.js" crossorigin="anonymous"></script>
+
+    <script>
+        function show_password(){
+            var password = document.getElementById("password-field");
+            
+            if(password.type === "password")
+                password.type = "text";
+            else
+                password.type = "password";
+
+        }
+
+    </script>
+</body>

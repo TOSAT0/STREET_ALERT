@@ -1,0 +1,43 @@
+@media screen and (max-width: 950px) {
+    .content {
+        grid-template-columns: none;
+        max-height: 1100px;
+    }
+
+    .signup-container {
+        margin-inline: auto;
+        border-radius: 0;
+        overflow: hidden;
+        flex-direction: column;
+        display: flex;
+        width: 100%; 
+        text-align: center;
+    }
+
+    #username-field, #password-field {
+        width: 400px;
+    }
+
+    .toggle-password {
+        width: 400px;
+    }
+    
+
+    .decoration {
+        width: 100%;  
+    }
+
+    .content {
+        grid-template-areas:
+            "seconda-colonna"
+            "prima-colonna";
+    }
+
+    .cell:nth-child(1) {
+        grid-area: prima-colonna;
+    }
+
+    .item:nth-child(2) {
+        grid-area: seconda-colonna;
+    }
+}
