@@ -15,10 +15,17 @@ export const map = createMap()
 placeMarkers(map)
 
 var modal = document.getElementById("myModal")
-export function openNav(data) 
+export async function openNav(data) 
 {
     document.getElementById('id_alert').innerHTML = "ID " + data.id
     document.getElementById('data_segnalazione').innerHTML = data.start_date
+
+    let address = await maptilersdk.geocoding.reverse([data.lng, data.lat])
+
+    if(address.features[0] != null)
+        document.getElementById('via').innerHTML = address.features[0].place_name
+    else
+    document.getElementById('via').innerHTML = " localita' non trovata "
 
     if(data.state != "SOLVED")
     {
