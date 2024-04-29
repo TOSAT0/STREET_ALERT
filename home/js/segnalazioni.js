@@ -43,11 +43,11 @@ export function placeMarkers(map)
             marker['lat'] = lat,
             marker['lng'] = lng,
             marker['state'] = jsData[index].state,
-            marker['date'] = jsData[index].date,
-            marker['municipality'] = jsData[index].municipality,
+            marker['start_date'] = jsData[index].start_date,
+            marker['end_date'] = jsData[index].end_date,
+            marker['id_municipality'] = jsData[index].id_municipality,
             marker['photo'] = jsData[index].photo,
             marker['description'] = jsData[index].description
-
 
             // lo stato della segnalazione serve per impostare 
             // i diversi marker all'interno della mappa

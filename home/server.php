@@ -20,12 +20,13 @@ function getCoords()
         $data[] = array(
             'id' => $alert['id_alert'], 
             'photo' => $alert['photo'], 
-            'date' => $alert['date'], 
+            'start_date' => $alert['start_date'],
+            'end_date' => $alert['end_date'], 
             'lat' => $alert['lat'], 
             'lon' => $alert['lon'], 
             'description' => $alert['description'], 
             'state' => $alert['state'], 
-            'municipality' => $alert['municipality']
+            'id_municipality' => $alert['id_municipality']
         );
     }
 
