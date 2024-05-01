@@ -1,7 +1,5 @@
 maptilersdk.config.apiKey = 'q4oRks2SGO0b6v1PQSmh'
 
-let id_user = 0
-
 let photo
 
 const input = document.getElementById("input")
@@ -136,8 +134,9 @@ function httpRequest(id_alert, status){
     formData.append("id_type", document.getElementById("types").value)
     formData.append("photo", photo)
     formData.append("id_alert", id_alert)
-    formData.append("id_user", id_user)
     formData.append("status", status)
+    
+    formData.append("id_user", localStorage.getItem('id'))
 
     xhttp.open("POST", "php/report.php", true)
     xhttp.setRequestHeader("Cache-Control", "no-cache")
