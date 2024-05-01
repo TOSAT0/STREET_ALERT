@@ -1,5 +1,7 @@
 maptilersdk.config.apiKey = 'q4oRks2SGO0b6v1PQSmh'
 
+let id_user = 0
+
 let photo
 
 const input = document.getElementById("input")
@@ -129,11 +131,12 @@ function httpRequest(id_alert, status){
     formData.append("lat", gps.lat)
     formData.append("lon", gps.lon)
     formData.append("error", gps.error)
-    formData.append("municipality", gps.municipality)
+    formData.append("id_municipality", gps.municipality)
     formData.append("description", document.getElementById("description").value)
     formData.append("id_type", document.getElementById("types").value)
     formData.append("photo", photo)
     formData.append("id_alert", id_alert)
+    formData.append("id_user", id_user)
     formData.append("status", status)
 
     xhttp.open("POST", "php/report.php", true)
