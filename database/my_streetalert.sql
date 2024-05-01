@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Apr 27, 2024 alle 17:55
--- Versione del server: 10.4.32-MariaDB
--- Versione PHP: 8.2.12
+-- Creato il: Mag 01, 2024 alle 17:12
+-- Versione del server: 10.4.28-MariaDB
+-- Versione PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -48,11 +48,9 @@ CREATE TABLE `alerts` (
 --
 
 INSERT INTO `alerts` (`id_alert`, `photo`, `start_date`, `end_date`, `lat`, `lon`, `error`, `description`, `state`, `times`, `id_user`, `id_type`, `id_municipality`) VALUES
-(359, 'PHOTO', '2024-04-02 00:00:00', '2024-04-27 17:47:07', 1.000000, 3.000000, 4.0, 'ciao', 'SOLVED', 2, 1, 3, 1),
-(362, 'PHOTO', '2024-02-01 00:00:00', '2024-04-27 17:40:55', 3.000000, 1.000000, 4.0, 'ciao', 'SOLVED', 13, 1, 12, 1),
-(363, 'uploads/0_lsan4v9omqvi4wup5lsan4v9oqtg4lfkpulsan4v9osizdc3zzl.webp', '2024-02-06 18:34:42', NULL, 45.464203, 9.189982, 999.9, 'asdasd', 'NEW', 1, 1, 1, 1),
-(364, 'uploads/0_lsd2kb6oo1pj29kbalsd2kb6oaos4c71etlsd2kb6okb8q65rpj.webp', '2024-02-08 11:23:00', '2024-04-27 17:41:44', 45.398399, 12.484900, 1.0, 'Rappresentante di estrema destra', 'SOLVED', 1, 1, 8, 1),
-(365, 'uploads/0_lv3rsofk7jbnam3gqlv3rsofk7czcbpma0lv3rsofk2luv7j00b.webp', '2024-04-17 14:16:17', NULL, 45.692169, 12.268773, 999.9, 'oijhubgyvftcd', 'SEEN', 1, 1, 4, 1);
+(10, 'uploads/0_lvnya6z28aw25eqj9lvnya6z20vaknwh4tlvnya6z2s4k09tuyx.webp', '2024-05-01 17:06:47', NULL, 45.464204, 9.189982, 999.9, '', 'NEW', 1, 0, 0, 1773),
+(13, 'uploads/0_lsd2kb6oo1pj29kbalsd2kb6oaos4c71etlsd2kb6okb8q65rpj.webp', '2024-02-08 11:23:00', '2024-04-27 17:41:44', 45.398399, 12.484900, 1.0, 'Rappresentante di estrema destra', 'SOLVED', 1, 0, 8, 1),
+(14, 'uploads/0_lv3rsofk7jbnam3gqlv3rsofk7czcbpma0lv3rsofk2luv7j00b.webp', '2024-04-17 14:16:17', NULL, 45.692169, 12.268773, 999.9, 'oijhubgyvftcd', 'SEEN', 1, 0, 4, 1);
 
 -- --------------------------------------------------------
 
@@ -8023,7 +8021,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_user`, `email`, `password`) VALUES
-(1, 'streetalert.it@gmail.com', '$2y$10$bfLEK.iqDW.eB93Te.UNLOOntHnkEA7AAvo.d3HDhQkZSCxSBwzEO');
+(0, 'streetalert.it@gmail.com', '$2y$10$bfLEK.iqDW.eB93Te.UNLOOntHnkEA7AAvo.d3HDhQkZSCxSBwzEO');
 
 --
 -- Indici per le tabelle scaricate
@@ -8066,7 +8064,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT per la tabella `alerts`
 --
 ALTER TABLE `alerts`
-  MODIFY `id_alert` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=369;
+  MODIFY `id_alert` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT per la tabella `users`
