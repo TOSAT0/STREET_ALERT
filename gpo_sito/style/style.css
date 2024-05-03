@@ -192,6 +192,7 @@ header {
 /* Parte delle features */
 
 .features-section {
+    margin-top: 50px;
     padding: 80px var(--padding-inline-section) 0;
     background-image: url(); 
     background-repeat: no-repeat;
@@ -201,6 +202,7 @@ header {
 .features-header {
     text-align: center;
     margin-bottom: 40px;
+    margin-top: 40px;
 }
 
 .features-heading-text {
@@ -310,6 +312,7 @@ header {
 }
 
 .cta-section {
+    margin-top: 100px;
     padding: 120px var(--padding-inline-section) 80px;
     background-color: #DE6E3B;
 }

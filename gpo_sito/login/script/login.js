@@ -16,8 +16,8 @@ xhttp.onreadystatechange = function() {
     }
 }
 
-function httpRequest(status, formData){
-    formData.append("signin", status)
+function login(status, formData){
+    formData.append("login", status)
     formData.append("email", document.getElementById("username-field").value)
     formData.append("psw", document.getElementById("password-field").value)
 
