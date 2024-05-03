@@ -6,7 +6,7 @@
 
         if($_POST['status'] == "report"){
             if(sizeof($same) == 0){
-                report($_POST['photo'], $_POST['lat'], $_POST['lon'], $_POST['error'], $_POST['description'], id_municipality($_POST['municipality']), $_POST['id_user'], $_POST['id_type']);
+                report($_POST['photo'], $_POST['lat'], $_POST['lon'], $_POST['error'], $_POST['description'], id_municipality($_POST['id_municipality']), $_POST['id_user'], $_POST['id_type']);
                 $response = array("status" => "reported");
             }else{
                 $response = array("status" => "error", "same" => $same);
@@ -17,7 +17,7 @@
             $response = array("status" => "modified");
         }
         if($_POST['status'] == "not_exist"){
-            report($_POST['photo'], $_POST['lat'], $_POST['lon'], $_POST['error'], $_POST['description'], id_municipality($_POST['municipality']),  $_POST['id_user'], $_POST['id_type']);
+            report($_POST['photo'], $_POST['lat'], $_POST['lon'], $_POST['error'], $_POST['description'], $_POST['id_municipality'],  $_POST['id_user'], $_POST['id_type']);
             $response = array("status" => "reported");
         }
 
