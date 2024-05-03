@@ -57,7 +57,7 @@ function getTypes(){
 }
 
 function generateInput(id_user, types){
-	photo = "uploads/" + id_user + "_" + generateUniqueId() + generateUniqueId() + generateUniqueId() + ".webp"
+	photo = id_user + "_" + generateUniqueId() + generateUniqueId() + generateUniqueId() + ".webp"
 	let content = ""
     
     content += "<label for='imageFile' class='custom-file-input'><input type='file' id='imageFile'  name='imageFile' capture='environment' accept='image/*' /></label><br>"
