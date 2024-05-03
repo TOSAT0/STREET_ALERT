@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Website</title>
-    <link rel="stylesheet" href="style/signin.css">
+    <link rel="stylesheet" href="style/login.css">
     <link rel="stylesheet" href="style/media-queries.css">
 </head>
 <body>
@@ -20,10 +20,10 @@
                 <li><i class="fa-solid fa-circle-check"></i>  <span class="list">Se paghi vedi le segnalazioni</span> </li>
             </ul>
         </div>
-        <div class="signin-container cell">
+        <div class="login-container cell">
             <h2> Accedi </h2>
             <p> Non hai un account ? <a href="../signup/signup.html"> Registrati</a></p>
-                <form class="signin-form">
+                <form class="login-form">
                     <label for="username">Email</label>
                     <input type="text" name="username" placeholder="ex : prova123@gmail.com" id="username-field"/>
                     <label for="password" style="margin-top: 20px;"> Password</label>
@@ -32,11 +32,12 @@
                         <input type="checkbox" name="toggle_password" id="toggle_password" onclick="show_password()"> 
                         <label for="toggle_password" style="padding-left: 10px; font-size: 15px;"> Show Password</label>
                     </div>
-                        <a href="../index.html" id="signin-button">Sign In</a>
+                        <button onclick="login()">Login</a>
                 </form>
         </div>
     </div>
     <script src="https://kit.fontawesome.com/c1fc3d2826.js" crossorigin="anonymous"></script>
+    <script src="script/login.js"></script>
 
     <script>
         function show_password(){

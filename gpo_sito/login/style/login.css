@@ -59,7 +59,7 @@ ul {
 }
 
 
-.signin-container {
+.login-container {
     margin-inline: auto;
     padding-inline: var(--padding-inline-sect);
     overflow: hidden;
@@ -73,7 +73,7 @@ ul {
     
 }
 
-.signin-form {
+.login-form {
     flex-direction: column;
     display: flex;
     margin-top: 30px;
@@ -121,7 +121,7 @@ ul {
     border-color: var(--accent-color);
 }
 
-#signin-button{
+#login-button{
     font-family: 'Poppins', sans-serif;
     padding: 10px;
     border-radius: 10px;
@@ -139,7 +139,7 @@ ul {
     align-items: center;
 }
 
-#signin-button:hover {
+#login-button:hover {
     background-color: white;
     color: var(--primary-text-color);
 }
