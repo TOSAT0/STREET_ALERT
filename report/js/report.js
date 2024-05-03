@@ -129,7 +129,7 @@ function httpRequest(id_alert, status){
     formData.append("lat", gps.lat)
     formData.append("lon", gps.lon)
     formData.append("error", gps.error)
-    formData.append("id_municipality", gps.municipality)
+    formData.append("municipality", gps.municipality)
     formData.append("description", document.getElementById("description").value)
     formData.append("id_type", document.getElementById("types").value)
     formData.append("photo", photo)
