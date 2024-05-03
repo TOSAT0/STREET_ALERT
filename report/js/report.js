@@ -58,7 +58,8 @@ function getTypes(){
 
 function generateInput(id_user, types){
 	photo = id_user + "_" + generateUniqueId() + generateUniqueId() + generateUniqueId() + ".webp"
-	let content = ""
+	
+    let content = ""
     
     content += "<label for='imageFile' class='custom-file-input'><input type='file' id='imageFile'  name='imageFile' capture='environment' accept='image/*' /></label><br>"
     content += "<select id='types'>"
@@ -149,7 +150,7 @@ function uploadImage() {
 
     let formData = new FormData()
     formData.append("image", file)
-    formData.append("photo", photo)
+    formData.append("photo", "uploads/" + photo)
 
     xhttp.open("POST", "php/upload.php", true)
     xhttp.setRequestHeader("Cache-Control", "no-cache")
