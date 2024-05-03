@@ -159,7 +159,7 @@ function uploadImage() {
 
 function moderateImage(){
 	var ajax_url = "https://api.moderatecontent.com/moderate/"
-    var image_url = "https://streetalert.altervista.org/Report/" + photo
+    var image_url = "https://streetalert.altervista.org/report/" + photo
     console.log(image_url)
     xhttp.open("GET", ajax_url + "?key=0a32d8307e3731062c5874b63934dd01&url=" + image_url, true)
     xhttp.send()
