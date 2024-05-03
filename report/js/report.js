@@ -60,14 +60,14 @@ function generateInput(id_user, types){
 	photo = "uploads/" + id_user + "_" + generateUniqueId() + generateUniqueId() + generateUniqueId() + ".webp"
 	let content = ""
     
-    content += "<input type='file' id='imageFile' name='image' capture='environment' accept='image/*' /><br>"
+    content += "<label for='image' class='custom-file-input'><input type='file' id='image' src='../style/logo192.png' name='image' capture='environment' accept='image/*' /></label><br>"
     content += "<select id='types'>"
     types.forEach(function(type) {
     	content += "<option value='" + type['id_type'] + "'>" + type['type'] + "</option>"
     })
     content += "</select><br>"
-    content += "<input type='text' id='description' placeholder='Inserisci una descrizione' /><br>"
-    content += "<button onclick='report()'>SEGNALA</button>"
+    content += "<textarea id='description' placeholder='Inserisci una descrizione' /></textarea><br>"
+    content += "<button id='segnala' onclick='report()'><img src='../images/logo192.src'></button>"
     
     input.innerHTML = content
 }

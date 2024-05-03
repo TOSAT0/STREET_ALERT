@@ -1,4 +1,142 @@
-img{
-	height: 100px;
-    width: 100px;
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+    
 }
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #236736;
+}
+.nav-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    width: 100vw;
+    z-index: 1000;
+}
+
+.nav-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100% ;
+    margin: 0px;
+    padding: 16px;
+    background: #6BAF7D;
+    border-radius: 30px 30px 0 0;
+    z-index: 1000;
+}
+
+#image{
+    width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.custom-file-input {
+    display: inline-block;
+    position: absolute;
+    width: 192px;
+    height: 192px;
+    left: calc(50% - 192px/2 + 1px);
+    top: calc(50% - 390px/2 - 128px);
+    background: url('logo192.png');
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#title{
+    text-align: calc(50% - 162px/2 + 1px);
+    position: absolute;
+    top: 5%;
+    font-size: 40px;
+    line-height: 44px;
+    letter-spacing: 0.24em;
+    color: #EFF0F0;
+    font-family: "Signika Negative", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+
+
+
+}
+
+#description{
+    position: absolute;
+    width: 266px;
+    height: 159px;
+    left: calc(50% - 266px/2 + 2px);
+    top: 52%;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+    background-color: #EFF0F0;
+}
+
+
+#segnala{
+    position: absolute;
+    width: 100px;
+    height: 40px;
+    left: calc(50% - 100px/2 + 2px);
+    top: 75%;
+    background-color: EFF0F0;
+    
+}
+
+#types,
+#types * {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+#types {
+    top:40%;
+    width: 330px;
+    left: calc(50% - 330px/2 + 1px);
+    position: absolute;
+    background-color: #E6E6E6;
+    border-radius: 4px;
+
+}
+#types {
+    font-size: 1rem;
+    font-weight: normal;
+    max-width: 100%;
+    padding: 8px 24px 8px 10px;
+    border: none;
+
+}
+#types select:active, .select-dropdown select:focus {
+    outline: none;
+    box-shadow: none;
+}
+#types-dropdown:after {
+    content: "";
+    position: absolute;
+    top: 100px;
+    width: 0;
+    height: 0;
+    margin-top: -2px;
+    border-top: 5px solid #aaa;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+}
+
