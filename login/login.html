@@ -23,17 +23,18 @@
         <div class="login-container cell">
             <h2> Accedi </h2>
             <p> Non hai un account ? <a href="../signup/signup.html"> Registrati</a></p>
-                <form class="login-form">
-                    <label for="username">Email</label>
-                    <input type="text" name="username" placeholder="ex : prova123@gmail.com" id="username-field"/>
-                    <label for="password" style="margin-top: 20px;"> Password</label>
-                    <input type="password" name="password" id="password-field"/>
-                    <div class="toggle-password">
-                        <input type="checkbox" name="toggle_password" id="toggle_password" onclick="show_password()"> 
-                        <label for="toggle_password" style="padding-left: 10px; font-size: 15px;"> Show Password</label>
-                    </div>
-                        <button id="login-button" onclick="login()">Login</a>
-                </form>
+            <form class="login-form">
+                <label for="username">Email</label>
+                <input type="text" name="username" placeholder="ex : prova123@gmail.com" id="username-field"/>
+                <label for="password" style="margin-top: 20px;"> Password</label>
+                <input type="password" name="password" id="password-field"/>
+                <div id="error"></div>
+                <div class="toggle-password">
+                    <input type="checkbox" name="toggle_password" id="toggle_password" onclick="show_password()"> 
+                    <label for="toggle_password" style="padding-left: 10px; font-size: 15px;"> Show Password</label>
+                </div>
+                <button id="login-button" onclick="login(event)">Login</button>
+            </form>
         </div>
     </div>
     <script src="https://kit.fontawesome.com/c1fc3d2826.js" crossorigin="anonymous"></script>
