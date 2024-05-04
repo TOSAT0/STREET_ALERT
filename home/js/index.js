@@ -46,7 +46,11 @@ export async function openNav(data)
         let d2 = new Date(formattedDateTime)
 
         document.getElementById('durata').innerHTML = Math.floor((d2 - d1) / (1000 * 60 * 60 * 24) + 1) + " giorni"
-        document.getElementById('data_fine_segnalazione').innerHTML = " in corso... "
+        document.getElementById('data_fine_segnalazione').innerHTML = " **/**/**** "
+
+        document.getElementById('alert-state').style.backgroundColor = "#E3CE59"
+        document.getElementById('alert-state').style.marginLeft = "20%"
+        document.getElementById('alert-status').innerHTML = " In corso "
     }
     else
     {
@@ -55,6 +59,9 @@ export async function openNav(data)
 
         document.getElementById('durata').innerHTML = Math.floor((d2 - d1) / (1000 * 60 * 60 * 24) + 1) + " giorni"
         document.getElementById('data_fine_segnalazione').innerHTML = data.end_date
+        document.getElementById('alert-state').style.backgroundColor = "green"
+        document.getElementById('alert-state').style.marginLeft = "10%"
+        document.getElementById('alert-status').innerHTML = " Completata "
     }
 
     modal.style.display= "block"

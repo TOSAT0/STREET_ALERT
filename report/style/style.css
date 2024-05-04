@@ -1,19 +1,139 @@
-* {
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700");
+
+*{
     margin: 0;
     padding: 0;
-    outline: 0;
     box-sizing: border-box;
-    
+    font-family: "Open Sans", sans-serif;
 }
 
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #236736;
+:root {
+    --container-font-size: 28px;
+    --container-background-color: #143982;
+    --btn-upload-background-color: #AEB6FF;
+    --btn-upload-color: #ffffff;
+    --btn-upload-width: 300px;
+    --btn-upload-height: 50px;
+    --btn-upload-border-radius: 0.75em;
+    --btn-upload-transition-time: 50ms;
+    --progress-width: 50px;
+    --progress-height: 30px;
+    --progress-top: -40px;
+    --progress-arrow-color: #ffffff;
+    --progress-arrow-background-color: #f53060;
+    --progress-arrow-width: 8px;
+    --progress-arrow-height: 8px;
+    --check-width: 80px;
+    --check-height: 45px;
+    --check-stroke: 15px;
+  }
+
+body{
+    background-color: #236736;;
 }
+
+p{
+    color: white;
+    text-align: center;
+    margin-top: 5%;
+    font-weight: bold;
+    font-size: 150%;
+}
+
+/*------------- PHOTO -------------*/
+
+.photo-container{
+    text-align: center;
+    margin-top: 5%;
+}
+
+.custom-file-input{
+    display: inline-block;
+    width: 256px;
+    height: 256px;
+    background: url('camera.png');
+}
+
+input[type="file"]{
+    display: none;
+}
+/*------------- PHOTO -------------*/
+
+/*------------- SELECT -------------*/
+
+.types-container{
+    text-align: center;
+}
+
+#types{
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 0 5px 5px rgb(50, 50, 50);
+    height: 50px;
+}
+
+/*------------- SELECT -------------*/
+
+/*------------- TXT AREA -------------*/
+
+.description-container{
+    text-align: center;
+}
+
+#description{
+    margin-top: 5%;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 0 5px 5px rgb(50, 50, 50);
+    resize: none;
+    height: 100px;
+    text-decoration: none;
+}
+
+#description:focus-visible{
+    outline: none;
+}
+
+/*------------- TXT AREA -------------*/
+
+/*------------- SUBMIT -------------*/
+
+.submit-container{
+    text-align: center;
+}
+
+#segnala{
+    color: var(--btn-upload-color);
+    fill: var(--btn-upload-color);
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: bold;
+    background-color: var(--btn-upload-background-color);
+    width: var(--btn-upload-width);
+    height: var(--btn-upload-height);
+    padding: 0;
+    border: 0;
+    outline: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: var(--btn-upload-border-radius);
+    box-shadow: 0 0.7em 1.2em rgba(25, 25, 25, 0.5);
+    margin-bottom: 50%;
+}
+
+#segnala > span {
+    color: inherit;
+    margin-left: 2.5%;
+}
+
+/*------------- SUBMIT -------------*/
+
+#types, #description{
+    width: 300px;
+}
+
 .nav-container {
     position: fixed;
     bottom: 0;
@@ -37,119 +157,4 @@ body {
     background: #6BAF7D;
     border-radius: 30px 30px 0 0;
     z-index: 1000;
-}
-
-#imageFile{
-    width: 0.1px;
-	height: 0.1px;
-	opacity: 0;
-	overflow: hidden;
-	position: absolute;
-	z-index: -1;
-}
-
-.custom-file-input {
-    display: inline-block;
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    left: calc(50% - 200px/2 + 1px);
-    top: calc(50% - 390px/2 - 128px);
-    background: url('camera.png');
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-#title{
-    text-align: calc(50% - 162px/2 + 1px);
-    position: absolute;
-    top: 5%;
-    font-size: 40px;
-    line-height: 44px;
-    letter-spacing: 0.24em;
-    color: #EFF0F0;
-    font-family: "Signika Negative", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-
-
-
-}
-
-#description{
-    position: absolute;
-    width: 266px;
-    height: 159px;
-    left: calc(50% - 266px/2 + 2px);
-    top: 55%;
-    border-radius: 10px;
-    border: 2px solid #ccc;
-    background-color: #EFF0F0;
-}
-
-
-#segnala{
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    left: calc(50% - 80px/2 + 2px);
-    top: 78%;
-   background-color: transparent;
-   border: none;
-    
-}
-
-#types,
-#types * {
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    box-sizing: border-box;
-    overflow: hidden;
-}
-#types {
-    top:40%;
-    width: 330px;
-    left: calc(50% - 330px/2 + 1px);
-    position: absolute;
-    background-color: #E6E6E6;
-    border-radius: 4px;
-
-}
-#types {
-    font-size: 1rem;
-    font-weight: normal;
-    max-width: 100%;
-    padding: 8px 24px 8px 10px;
-    border: none;
-
-}
-#types select:active, .select-dropdown select:focus {
-    outline: none;
-    box-shadow: none;
-}
-#types-dropdown:after {
-    content: "";
-    position: absolute;
-    top: 100px;
-    width: 0;
-    height: 0;
-    margin-top: -2px;
-    border-top: 5px solid #aaa;
-    border-right: 5px solid transparent;
-    border-left: 5px solid transparent;
-}
-
-#demo,#same{
-    position: relative;
-    text-align: center;
-    position: absolute;
-    font-size: 12px;
-    line-height: 20px;
-    color: #EFF0F0;
-    font-family: "Signika Negative", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
 }

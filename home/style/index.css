@@ -3,6 +3,8 @@
     padding: 0;
     outline: 0;
     box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
 }
 
 body {
@@ -56,13 +58,11 @@ body {
     animation-duration: 0.4s;
 }
 
-
 .modal-content {
     position: fixed;
     bottom: 0;
     background-color: #4D9D64;
-    padding: 1.5rem;
-    height: 55%;
+    height: 70%;
     width: 100%;
     border-top-left-radius: 3rem;
     border-top-right-radius: 3rem;
@@ -72,7 +72,31 @@ body {
     animation-duration: 0.6s;
 }
 
+.status{
+    margin-top: 10%;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 100px;
+    padding: 5%;
+}
+
+#alert-state{
+    height: 10px;
+    width: 10px;
+    background-color: green;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 5%;
+}
+
+#alert-status{
+    font-size: 95%;
+    margin-left: 5%;
+    display: inline-block;
+}
+
 .box{
+    margin: 0 2.5%;
     display:flex;
     flex-direction:column;
     padding-top: 5%;
@@ -104,6 +128,7 @@ body {
 }
 
 .first_div_right_up{
+    box-shadow: 0 5px 5px rgb(50, 50, 50);
     background-color: #ffffff;
     padding: 10px;
     border-radius: 20px; 
@@ -122,7 +147,6 @@ body {
     width: 100%;
 }
 .second_div_left{
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -130,12 +154,12 @@ body {
     /* background-color: #c6d164; */
     padding: 10px;
     border-radius: 10px; 
-    margin: 5px;
-    width: 100%;
-    max-width: 110px;
+    width: 70%;
+    max-width: 160px;
 }
 
 .second_up{
+    box-shadow: 0 5px 5px rgb(50, 50, 50);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -150,6 +174,7 @@ body {
 }
 
 .second_down{
+    box-shadow: 0 5px 5px rgb(50, 50, 50);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -165,29 +190,23 @@ body {
 }
 
 .second_div_right{
-
     display:flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    padding: 10px;
-    padding-right: 10%;
+    padding: 15px;
     border-radius: 10px; 
-    margin: 5px;
     width: 100%;
 }
 
 .third_div{
+    box-shadow: 0 5px 5px rgb(50, 50, 50);
     display: flex;
     flex-direction: column;
     justify-content: center;
-
     background-color: #82dcff;
     padding: 10px;
-    max-width: 286px;
     border-radius: 20px; 
     margin: 5px;
-    width: 120%;
     height: 155px;
     flex: 3;
 }
