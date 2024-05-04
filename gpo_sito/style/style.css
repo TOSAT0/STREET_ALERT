@@ -11,8 +11,8 @@
 :root {
     --primary-text-color: #303D50;
     --secondary-text-color: #506E86;
-    --accent-color:#FBB141 ;
-    --accent-color-dark: #BE7404;
+    --accent-color:#6BAF7D ;
+    --accent-color-dark: #6BAF7D;
     --padding-inline-sect: 20px;
 }
 
@@ -110,7 +110,7 @@ ul {
 
 .top-banner {
     background-image: url(); 
-    background-color: #c06034;
+    background-color: #236736;
     background-size: 300px;
 }
 
@@ -128,7 +128,7 @@ ul {
 }
 
 .company-logo img {
-    width: 200px;
+    width: 100px;
 }
 
 .nav-links {
@@ -157,6 +157,7 @@ header {
 
 .header-left {
     max-width: 40vw;
+    justify-content: center;
 }
 
 .header-left h1 {
@@ -176,6 +177,7 @@ header {
 .companies-header {
     text-align: center;
     margin-block: 30px;
+    font-size: 22px;
     color: var(--primary-text-color);
 }
 
@@ -314,7 +316,7 @@ header {
 .cta-section {
     margin-top: 100px;
     padding: 120px var(--padding-inline-section) 80px;
-    background-color: #DE6E3B;
+    background-color: #236736;
 }
 
 .cta-section-container p {
@@ -326,7 +328,7 @@ header {
 
 footer {
     padding-block: 80px;
-    background-color: #ebf2fa;
+    background-color: #EFF0F0   ;
 }
 
 .link-column {
