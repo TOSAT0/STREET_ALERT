@@ -57,4 +57,24 @@
             return true;
         return false;
     }
+
+    // array: alerts exixts - null: alerts not exists
+    function get_alerts() {
+        $conn = connect();
+        
+        try {
+            $result = $conn->query("SELECT * FROM alerts");
+            if ($result->num_rows > 0) {
+                $alerts_array = array();
+                foreach($result as $row) {
+                    array_push($alerts_array, $row);
+                }
+                return $alerts_array; 
+            }
+            return null;
+        } catch (Exception $e) {
+            die("get_alerts");
+        }
+    }
+    
 ?>

@@ -14,10 +14,26 @@
             case "signup":
 
                 break;
+            // case "table":
+            //     $alerts = get_alerts();
+            //     if($alerts)
+            //         $response = array("status" => "table_success", "alerts" => $alerts);
+            //     else
+            //         $response = array("status" => "table_failed")
+            //     break;
         }
-
-        header('Content-Type: application/json');
-        header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-        echo json_encode($response);
     }
+
+    if($_SERVER["REQUEST_METHOD"] == "GET"){
+        $alerts = get_alerts();
+        if($alerts)
+            $response = array("status" => "table_success", "alerts" => $alerts);
+        else
+            $response = array("status" => "table_failed");
+    }
+
+    header('Content-Type: application/json');
+    header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+    echo json_encode($response);
+
 ?>
