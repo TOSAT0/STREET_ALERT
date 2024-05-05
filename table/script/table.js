@@ -44,11 +44,11 @@ $('th').on('click', function(){
     if(column != "id"  && column != "via" && column != "descrizione"){
         if(order == 'desc'){
             $(this).data('order', "asc")
-            alerts.sort((a, b) => a.times - b.times)
+            alerts.sort((a, b) => a[column] - b[column])
             text += '&#9660'
         }else{
             $(this).data('order', "desc")
-            alerts.sort((a, b) => b.times - a.times)
+            alerts.sort((a, b) => b[column] - a[column])
             text += '&#9650'
         }
         $(this).html(text)
