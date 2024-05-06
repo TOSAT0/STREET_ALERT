@@ -50,26 +50,34 @@ $('th').on('click', function(){
         text += '&#9650'
     }
 
-    if(column === "times"){
-        if(order == 'desc') alerts.sort((a, b) => a[column] - b[column])
-        else alerts.sort((a, b) => b[column] - a[column])
-    }
-
-    if(column === "start_date" || column === "end_date"){
+    if(column === "start_date" || column === "end_date" || column === "duration" || column === "times"){
         alerts.sort((a, b) => {
-            const dateA = new Date(a[column]).getTime()
-            const dateB = new Date(b[column]).getTime()
-            console.log(dateA)
-            console.log(dateA)
+            if(column === "start_date" || column === "end_date"){
+                const dataA = new Date(a[column]).getTime()
+                const dataB = new Date(b[column]).getTime()
+            }
+            if(column === "times"){
+                const dataA = a[column]
+                const dataB = b[column]
+            }
+            if(column === "duration"){
+                var startDateA = new Date(a.start_date).getTime();
+                var endDateA = new Date(a.end_date).getTime();
+                var startDateB = new Date(b.start_date).getTime();
+                var endDateB = new Date(b.end_date).getTime();
+                const dataA = (endDateA - startDateA) / (1000 * 60 * 60 * 24);
+                const dataB = (endDateB - startDateB) / (1000 * 60 * 60 * 24);
+            }
+
             if(order == "desc"){
-                if (dateA < dateB)
+                if (dataA < dataB)
                     return -1;
-                if (dateA > dateB)
+                if (dataA > dataB)
                     return 1;
             }else{
-                if (dateA < dateB)
+                if (dataA < dataB)
                     return 1;
-                if (dateA > dateB)
+                if (dataA > dataB)
                     return -1;
             }
             return 0
