@@ -44,15 +44,15 @@ $('th').on('click', function(){
     var text = $(this).html()
     text = text.substring(0, text.length - 1)
 
-    if(order == "desc"){
-        $(this).data("order", "asc")
-        text += '&#9660'
-    }else{
-        $(this).data("order", "desc")
-        text += '&#9650'
-    }
-
     if(column === "start_date" || column === "end_date" || column === "duration" || column === "times"){
+        if(order == "desc"){
+            $(this).data("order", "asc")
+            text += '&#9660'
+        }else{
+            $(this).data("order", "desc")
+            text += '&#9650'
+        }
+
         alerts.sort((a, b) => {
             var dataA
             var dataB
@@ -86,8 +86,9 @@ $('th').on('click', function(){
             }
             return 0
         })
+
+        $(this).html(text)
     }
 
-    $(this).html(text)
     makeTable(alerts)
 })
