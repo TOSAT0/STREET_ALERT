@@ -40,20 +40,44 @@ $('th').on('click', function(){
 
     console.log(column)
     console.log(order)
+    console.log($(this)[column])
 
-    if(column != "id"  && column != "via" && column != "descrizione"){
-        if(order == 'desc'){
-            $(this).data('order', "asc")
-            alerts.sort((a, b) => a[column] - b[column])
-            text += '&#9660'
-        }else{
-            $(this).data('order', "desc")
-            alerts.sort((a, b) => b[column] - a[column])
-            text += '&#9650'
-        }
-        $(this).html(text)
-        makeTable(alerts)
+    if(order == "desc"){
+        $(this).data("order", "asc")
+        text += '&#9660'
+    }else{
+        $(this).data("order", "desc")
+        text += '&#9650'
     }
+
+    if(column === "times"){
+        if(order == 'desc') alerts.sort((a, b) => a[column] - b[column])
+        else alerts.sort((a, b) => b[column] - a[column])
+    }
+
+    if(column === "start_date" || column === "end_date"){
+        alerts.sort((a, b) => {
+            const dateA = new Date(a[column]).getTime()
+            const dateB = new Date(b[column]).getTime()
+            console.log(dateA)
+            console.log(dateA)
+            if(order == "desc"){
+                if (dateA < dateB)
+                    return -1;
+                if (dateA > dateB)
+                    return 1;
+            }else{
+                if (dateA < dateB)
+                    return 1;
+                if (dateA > dateB)
+                    return -1;
+            }
+            return 0
+        })
+    }
+
+    $(this).html(text)
+    makeTable(alerts)
 })
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
