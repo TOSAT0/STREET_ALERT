@@ -38,10 +38,6 @@ $('th').on('click', function(){
     var text = $(this).html()
     text = text.substring(0, text.length - 1)
 
-    console.log(column)
-    console.log(order)
-    console.log($(this)[column])
-
     if(order == "desc"){
         $(this).data("order", "asc")
         text += '&#9660'
@@ -52,23 +48,25 @@ $('th').on('click', function(){
 
     if(column === "start_date" || column === "end_date" || column === "duration" || column === "times"){
         alerts.sort((a, b) => {
+            var dataA
+            var dataB
             if(column === "start_date" || column === "end_date"){
-                const dataA = new Date(a[column]).getTime()
-                const dataB = new Date(b[column]).getTime()
+                dataA = new Date(a[column]).getTime()
+                dataB = new Date(b[column]).getTime()
             }
             if(column === "times"){
-                const dataA = a[column]
-                const dataB = b[column]
+                dataA = a.times
+                dataB = b.times
             }
             if(column === "duration"){
                 var startDateA = new Date(a.start_date).getTime();
                 var endDateA = new Date(a.end_date).getTime();
                 var startDateB = new Date(b.start_date).getTime();
                 var endDateB = new Date(b.end_date).getTime();
-                const dataA = (endDateA - startDateA) / (1000 * 60 * 60 * 24);
-                const dataB = (endDateB - startDateB) / (1000 * 60 * 60 * 24);
+                dataA = (endDateA - startDateA) / (1000 * 60 * 60 * 24);
+                dataB = (endDateB - startDateB) / (1000 * 60 * 60 * 24);
             }
-
+            
             if(order == "desc"){
                 if (dataA < dataB)
                     return -1;
