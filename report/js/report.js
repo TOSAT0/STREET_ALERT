@@ -2,9 +2,10 @@ maptilersdk.config.apiKey = 'q4oRks2SGO0b6v1PQSmh'
 
 let photo
 
-const select = document.getElementById("select")
 const x = document.getElementById("demo")
-const same = document.getElementById("same")
+const select = document.getElementById("select")
+const same_input = document.getElementById("same_input")
+const cards = document.getElementById("cards")
 
 let xhttp = new XMLHttpRequest()
 let gps = {
@@ -35,14 +36,26 @@ xhttp.onreadystatechange = function() {
             	x.innerHTML = "<h1>Database aggiornato</h1>"
                 break
             case "error":
-                let alerts = "<p>La tua segnalazione potrebbe essere una tra le seguenti</p>"
+                var same_input_content = ""
+                var cards_content = ""
+                var i = 1
                 res.same.forEach(function(element) {
+                    same_input_content += "<input type='radio' name='slider' id='item-"+i+"'"
+                    if(i == 0) same_input_content += " checked"
+                    same_input_content += ">"
+
+                    cards_content += "<label class='card' for='item"+i+"' id='img-"+i+"'>"
+                    cards_content += "<img src='"+element['photo']+"' alt='img'>"
+                    cards_content += "</label>"
+
                     if(gps.error > element['error'])
                         gps.error = element['error']
-                    alerts += "<p><img src='" + element['photo'] + "' alt='alert' /><button onclick='httpRequest(" + JSON.stringify(element['id_alert']) + ", \"exist\")'>SI</button></p>"
+                    // alerts += "<p><img src='" + element['photo'] + "' alt='alert' /><button onclick='httpRequest(" + JSON.stringify(element['id_alert']) + ", \"exist\")'>SI</button></p>"
                 })
                 alerts += "<p><button onclick='httpRequest(null, \"not_exist\")'>NO</button></p>"
-                x.innerHTML = alerts
+
+                cards.innerHTML = cards_content
+                same_input.innerHTML = same_input_content
                 break
             default:
                 alert(xhttp.responseText);
