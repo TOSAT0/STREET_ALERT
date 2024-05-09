@@ -74,11 +74,19 @@ function getTypes(){
 function generateInput(id_user, types){
 	photo = id_user + "_" + generateUniqueId() + generateUniqueId() + generateUniqueId() + ".webp"
 	
-    let content = "<div class='types-container'><select id='types'>"
-    types.forEach(function(type) {
-    	content += "<option value='" + type['id_type'] + "'>" + type['type'] + "</option>"
-    })
-    content += "</select></div><br>"
+    let content = ""
+
+    content += `
+    <div class='row types-container'>
+        <div class='col-12'>
+            <select id='types'>`
+                types.forEach(function(type) {
+                    content += "<option value='" + type['id_type'] + "'>" + type['type'] + "</option>"
+                })
+                content += `
+            </select>
+        </div>
+    </div>`
     
     select.innerHTML = content
 }

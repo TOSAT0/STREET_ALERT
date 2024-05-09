@@ -63,6 +63,12 @@ export async function openNav(data)
         document.getElementById('alert-state').style.marginLeft = "10%"
         document.getElementById('alert-status').innerHTML = " Completata "
     }
+    if(data.state == "NEW")
+    {
+        document.getElementById('alert-state').style.backgroundColor = "red"
+        document.getElementById('alert-state').style.marginLeft = "12%"
+        document.getElementById('alert-status').innerHTML = " Segnalato "
+    }
 
     modal.style.display= "block"
 }
