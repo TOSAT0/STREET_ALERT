@@ -5,10 +5,20 @@ $user = "root";
 $pw = "";
 $db = "my_streetalert";
 
+$conn = new mysqli($host, $user, $pw, $db);
 
+$query = "SELECT email FROM users WHERE id_user=".$_POST['id'];
 
-// $conn = new mysqli($host, $user, $pw, $db);
+$ris = $conn -> query($query);
 
-// $query = "SELECT * FROM alerts";
+$data = "";
 
-// return $conn -> query($query);
+foreach($ris as $v)
+{
+    $data = array(
+        'email' => $v['email']
+    );
+}
+
+$jsonCoords = json_encode($data);
+echo $jsonCoords;

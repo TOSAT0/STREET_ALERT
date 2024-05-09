@@ -1,12 +1,13 @@
-// let xhttp = new XMLHttpRequest();
+let xhttp = new XMLHttpRequest();
 
-// xhttp.onreadystatechange = function()
-// {
-//     if (this.readyState == 4 && this.status == 200) {
-//         setData(JSON.parse(this.response))
-//         showMarkers()
-//     }
-// }
+xhttp.onreadystatechange = function()
+{
+    if (this.readyState == 4 && this.status == 200) 
+    {
+        document.getElementById('user-email').innerHTML = JSON.parse(this.response).email
+    }
+}
 
-// xhttp.open("POST","server.php", true)
-// xhttp.send()
+xhttp.open("POST","php/server.php", true)
+xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+xhttp.send("id=" + localStorage.getItem('id'))
