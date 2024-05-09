@@ -9,4 +9,5 @@
         header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
         echo json_encode(array("status" => "photo"));
     }
+
 ?>

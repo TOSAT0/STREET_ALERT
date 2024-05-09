@@ -19,7 +19,7 @@
     </div>
 	<div class='row photo-container'>
         <div class='col-12'>
-            <label for='imageFile' class='custom-file-input'>
+            <label for='imageFile' id='custom-file-input'>
                 <input type='file' id='imageFile'  name='imageFile' capture='environment' accept='image/*' />
             </label>
         </div>
@@ -45,7 +45,7 @@
     </div>
 
     <div id="demo"></div>
-	
+
     <div class="same">
         <div id="same_input_content" class="same_input"></div>
         <div id="cards_content" class="cards"></div>
@@ -75,6 +75,46 @@
           </a>
       </div>
   </nav>
+
+  <script>
+    const fileInput = document.getElementById('imageFile');
+
+    fileInput.addEventListener('change', function() {
+        const file = this.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+				console.log("mao")
+				if(window.screen.width <= 349)
+				{
+					console.log("128")
+					document.getElementById('custom-file-input').style.width = "128px"
+					document.getElementById('custom-file-input').style.height = "128px"
+					document.getElementById('custom-file-input').style.background = "url('style/checked-128.png')"
+				}
+				else if(window.screen.width > 349 && window.screen.width < 600 && window.screen.height < 850)
+				{
+					console.log("256")
+					document.getElementById('custom-file-input').style.width = "256px"
+					document.getElementById('custom-file-input').style.height = "256px"
+					document.getElementById('custom-file-input').style.background = "url('style/checked-256.png')"
+				}
+				else if(window.screen.width >= 600 && window.screen.height >= 850)
+				{
+					console.log("512")
+					document.getElementById('custom-file-input').style.width = "512px"
+					document.getElementById('custom-file-input').style.height = "512px"
+					document.getElementById('custom-file-input').style.background = "url('style/checked-512.png')"
+				}
+
+            }
+            reader.readAsDataURL(file);
+        } else {
+            console.error('Nessun file selezionato.');
+        }
+    });
+	</script>
+	
     <script type="text/javascript" src="js/report.js"></script>
   </body>
 </html>

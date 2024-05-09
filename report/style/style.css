@@ -46,7 +46,7 @@ p{
     text-align: center;
 }
 
-.custom-file-input{
+#custom-file-input{
     display: inline-block;
     width: 256px;
     height: 256px;

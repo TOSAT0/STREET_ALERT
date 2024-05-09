@@ -33,7 +33,7 @@
     p{
         font-size: 110%;
     }
-    .custom-file-input{
+    #custom-file-input{
         width: 128px;
         height: 128px;
         background: url('camera-128.png');
@@ -50,7 +50,7 @@
     p{
         font-size: 150%;
     }
-    .custom-file-input{
+    #custom-file-input{
         width: 256px;
         height: 256px;
         background: url('camera-256.png');
@@ -69,7 +69,7 @@
     p{
         font-size: 200%;
     }
-    .custom-file-input{
+    #custom-file-input{
         width: 512px;
         height: 512px;
         background: url('camera-512.png');
