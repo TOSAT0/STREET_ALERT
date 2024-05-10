@@ -18,7 +18,18 @@ var modal = document.getElementById("myModal")
 export async function openNav(data) 
 {
     document.getElementById('id_alert').innerHTML = "ID " + data.id
-    document.getElementById('data_segnalazione').innerHTML = data.start_date
+
+    let d1 = new Date(data.start_date)
+
+    var formattedDate = d1.toLocaleString('it-IT',{
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit'
+    });
+
+    document.getElementById('data_segnalazione').innerHTML = formattedDate
 
     let address = await maptilersdk.geocoding.reverse([data.lng, data.lat])
 
@@ -37,12 +48,10 @@ export async function openNav(data)
         const day = String(now.getDate()).padStart(2, '0')
         const hours = String(now.getHours()).padStart(2, '0')
         const minutes = String(now.getMinutes()).padStart(2, '0')
-        const seconds = String(now.getSeconds()).padStart(2, '0')
 
         // Format the date and time
-        const formattedDateTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`
+        const formattedDateTime = `${year}-${month}-${day} ${hours}:${minutes}`
        
-        let d1 = new Date(data.start_date)
         let d2 = new Date(formattedDateTime)
 
         document.getElementById('durata').innerHTML = Math.floor((d2 - d1) / (1000 * 60 * 60 * 24) + 1) + " giorni"
@@ -54,11 +63,18 @@ export async function openNav(data)
     }
     else
     {
-        let d1 = new Date(data.start_date)
         let d2 = new Date(data.end_date)
 
+        var formattedDate = d2.toLocaleString('it-IT',{
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+
         document.getElementById('durata').innerHTML = Math.floor((d2 - d1) / (1000 * 60 * 60 * 24) + 1) + " giorni"
-        document.getElementById('data_fine_segnalazione').innerHTML = data.end_date
+        document.getElementById('data_fine_segnalazione').innerHTML = formattedDate
         document.getElementById('alert-state').style.backgroundColor = "green"
         document.getElementById('alert-state').style.marginLeft = "10%"
         document.getElementById('alert-status').innerHTML = " Completata "

@@ -17,16 +17,16 @@ export function placeMarkers(map)
         }
     }
 
-    xhttp.open("GET","server.php?send=getCoords", true)
+    xhttp.open("GET","php/alerts.php", true)
     xhttp.send()
 
     //--------------------- RICHIESTA ASINCRONA AL SERVER ---------------------
 
     let jsData;
 
-    function setData(a)
+    function setData(data)
     {
-        jsData = a
+        jsData = data
     }
 
     function showMarkers()
