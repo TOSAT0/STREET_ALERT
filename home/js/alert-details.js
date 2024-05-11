@@ -22,7 +22,30 @@ export async function openNav(data)
     else
     document.getElementById('via').innerHTML = " localita' non trovata "
 
-    if(data.state == "SEEN")
+    if(data.state == "NEW")
+    {
+        const now = new Date()
+
+        // Get year, month, day, hours, minutes, and seconds
+        const year = now.getFullYear()
+        const month = String(now.getMonth() + 1).padStart(2, '0')
+        const day = String(now.getDate()).padStart(2, '0')
+        const hours = String(now.getHours()).padStart(2, '0')
+        const minutes = String(now.getMinutes()).padStart(2, '0')
+
+        // Format the date and time
+        const formattedDateTime = `${year}-${month}-${day} ${hours}:${minutes}`
+        
+        let d2 = new Date(formattedDateTime)
+
+        document.getElementById('durata').innerHTML = Math.floor((d2 - d1) / (1000 * 60 * 60 * 24)) + " giorni"
+        document.getElementById('data_fine_segnalazione').innerHTML = " **/**/**** "
+
+        document.getElementById('alert-state').style.backgroundColor = "red"
+        document.getElementById('alert-status').innerHTML = " Segnalato "
+        setMargin(window.screen.width, data.state)
+    }
+    else if(data.state == "SEEN")
     {
         const now = new Date()
 
@@ -38,7 +61,7 @@ export async function openNav(data)
        
         let d2 = new Date(formattedDateTime)
 
-        document.getElementById('durata').innerHTML = Math.floor((d2 - d1) / (1000 * 60 * 60 * 24) + 1) + " giorni"
+        document.getElementById('durata').innerHTML = Math.floor((d2 - d1) / (1000 * 60 * 60 * 24)) + " giorni"
         document.getElementById('data_fine_segnalazione').innerHTML = " **/**/**** "
 
         document.getElementById('alert-state').style.backgroundColor = "#E3CE59"
@@ -59,14 +82,9 @@ export async function openNav(data)
 
         document.getElementById('durata').innerHTML = Math.floor((d2 - d1) / (1000 * 60 * 60 * 24) + 1) + " giorni"
         document.getElementById('data_fine_segnalazione').innerHTML = formattedDate
+
         document.getElementById('alert-state').style.backgroundColor = "green"
         document.getElementById('alert-status').innerHTML = " Completata "
-        setMargin(window.screen.width, data.state)
-    }
-    else if(data.state == "NEW")
-    {
-        document.getElementById('alert-state').style.backgroundColor = "red"
-        document.getElementById('alert-status').innerHTML = " Segnalato "
         setMargin(window.screen.width, data.state)
     }
 
