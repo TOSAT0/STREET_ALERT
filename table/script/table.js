@@ -1,3 +1,7 @@
+import config from "./config.js"
+
+maptilersdk.config.apiKey = config.API_KEY
+
 const x = document.getElementById("alerts")
 let alerts = []
 
@@ -5,9 +9,9 @@ let xhttp = new XMLHttpRequest()
 
 xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-        console.log(this.response)
-
         let res = JSON.parse(this.response)
+
+        console.log(res)
 
         alerts = res.alerts
 
@@ -19,16 +23,24 @@ xhttp.open("GET", "../server/sito.php", true)
 xhttp.setRequestHeader("Cache-Control", "no-cache")
 xhttp.send()
 
-function makeTable(data) {
+async function makeTable(data) {
     var table = ""
     for (var i = 0; i < data.length; i++){
+        let address = await maptilersdk.geocoding.reverse([data[i].lon, data[i].lat])
+        let via = ""
+
+        if(address.features[0] != null)
+            via = address.features[0].place_name
+        else
+            via = " localita' non trovata "
+
         var startDate = new Date(data[i]['start_date'])
         var endDate = new Date(data[i]['end_date'])
         var duration = (endDate - startDate) / (1000 * 60 * 60 * 24)
 
         table += "<tr id='" + data[i]['id_alert'] + "' class='" + data[i]['state'] + "'>"
         table += "<td>" + data[i]['id_alert'] + 
-                 "</td><td>VIA</td><td>" + startDate.toISOString().slice(0, 10) + 
+                 "</td><td>" + via + " </td><td>" + startDate.toISOString().slice(0, 10) + 
                  "</td><td>" + (data[i]['end_date'] ? endDate.toISOString().slice(0, 10) : "NULL") + 
                  "</td><td>" + (duration > 0 ? duration.toFixed(2) : "NULL") + 
                  "</td><td>" + data[i]['times'] + 
