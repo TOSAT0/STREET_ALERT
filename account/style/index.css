@@ -13,13 +13,29 @@ body {
 /*------------- PERSONAL-AREA -------------*/
 .area-container{
     text-align: center;
-    margin-top: 10%;
-    font-size: 150%;
+    margin-top: 8%;
+    font-size: 100%;
 }
 #personal-area{
+    padding: 15px;
     color: #EFF0F0;
 }
 /*------------- PERSONAL-AREA -------------*/
+
+/*------------- LOGOUT -------------*/
+.signout-container{
+    margin-top: 8%;
+}
+input[type=submit]{
+    background-color: #FFEE78;
+    border: none;
+    padding: 15px;
+    font-weight: bold;
+    font-size: 100%;
+    border-radius: 50px;
+    color: black;
+}
+/*------------- LOGOUT -------------*/
 
 /*------------- ACCOUNT-PNG -------------*/
 .account-container{
@@ -59,14 +75,6 @@ body {
     color: #EFF0F0;
     text-decoration: underline;
     font-weight: bold;
-}
-input[type=submit]{
-    background-color: #236736;
-    border: none;
-    color: white;
-    text-decoration: underline;
-    font-weight: bold;
-    font-size: 110%;
 }
 /*------------- CHANGE-PASSWORD -------------*/
 

@@ -20,22 +20,3 @@
 .col-10 {width: 83.33%;}
 .col-11 {width: 91.66%;}
 .col-12 {width: 100%;}
-
-
-@media only screen and (max-width: 349px) {
-    #account-img{
-        content:url('../img/user-32.png');
-    }
-}
-
-@media only screen and (min-width: 600px){
-    #account-img{
-        content:url('../img/user-64.png');
-    }
-}
-
-@media only screen and (min-height: 850px) and (min-width: 600px){
-    #account-img{
-        content:url('../img/user-128.png');
-    }
-}

@@ -84,24 +84,23 @@
         if (file) {
             const reader = new FileReader();
             reader.onload = function(e) {
-				console.log("mao")
 				if(window.screen.width <= 349)
 				{
-					console.log("128")
+					//128
 					document.getElementById('custom-file-input').style.width = "128px"
 					document.getElementById('custom-file-input').style.height = "128px"
 					document.getElementById('custom-file-input').style.background = "url('img/checked-128.png')"
 				}
-				else if(window.screen.width > 349 && window.screen.width < 600 && window.screen.height < 850)
+				else if(window.screen.width > 349)
 				{
-					console.log("256")
+					//256
 					document.getElementById('custom-file-input').style.width = "256px"
 					document.getElementById('custom-file-input').style.height = "256px"
 					document.getElementById('custom-file-input').style.background = "url('img/checked-256.png')"
 				}
 				else if(window.screen.width >= 600 && window.screen.height >= 850)
 				{
-					console.log("512")
+					//512
 					document.getElementById('custom-file-input').style.width = "512px"
 					document.getElementById('custom-file-input').style.height = "512px"
 					document.getElementById('custom-file-input').style.background = "url('img/checked-512.png')"
@@ -112,7 +111,7 @@
         } else {
             console.error('Nessun file selezionato.');
         }
-    });
+    })
     window.onload = function(){
     if (!localStorage.getItem('id'))
         window.location.href = "../login_signup/index.html"

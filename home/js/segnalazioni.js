@@ -1,5 +1,4 @@
-import config from "./config.js";
-import {openNav} from "./index.js";
+import {openNav} from "./alert-details.js";
 
 let markers = []
 
@@ -68,7 +67,7 @@ export function placeMarkers(map)
 
         for (let i = 0; i < markers.length; i++)
         {
-            markers[i].marker.getElement().addEventListener('click', (e) => openNav(markers[i]))
+            markers[i].marker.getElement().addEventListener('click', () => openNav(markers[i]))
         }
     }
 }

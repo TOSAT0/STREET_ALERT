@@ -16,8 +16,17 @@ xhttp.onreadystatechange = function()
         {
             if (this.readyState == 4 && this.status == 200) 
             {
-                //ALERTS DELL'UTENTE
-                console.log(JSON.parse(this.response))
+                let alerts = JSON.parse(this.response)
+
+                if(alerts.length == 0)
+                {
+                    console.log('Nessuna segnalazione presente')
+                }
+                else
+                {
+                    console.log('riga 27')
+                }
+
             }
         }
 
