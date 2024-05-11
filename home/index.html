@@ -197,6 +197,11 @@
         function closeNav() {
             modal.style.display = "none";
         }
+
+        window.onload = function(){
+        if (!localStorage.getItem('id'))
+            window.location.href = "../login_signup/index.html"
+        }
     </script>
 </body>
 </html>

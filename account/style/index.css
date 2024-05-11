@@ -57,6 +57,16 @@ body {
 }
 #change-password{
     color: #EFF0F0;
+    text-decoration: underline;
+    font-weight: bold;
+}
+input[type=submit]{
+    background-color: #236736;
+    border: none;
+    color: white;
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 110%;
 }
 /*------------- CHANGE-PASSWORD -------------*/
 

@@ -29,7 +29,10 @@
 
     <div class="row">
         <div class="col-12 password-container">
-            <a href="#" id="change-password">Modifica password</a>
+            <form action="index.html">
+                <a href="#" id="change-password">Modifica password</a>
+                <input type="submit" value="logout" onclick="logout()">
+            </form>
         </div>
     </div>
 
@@ -65,4 +68,16 @@
 
 </body>
 <script src="js/index.js"></script>
+
+<script>
+    window.onload = function(){
+    if (!localStorage.getItem('id'))
+        window.location.href = "../login_signup/index.html"
+    }
+
+    function logout()
+    {
+        localStorage.removeItem('id')
+    }
+</script>
 </html>
