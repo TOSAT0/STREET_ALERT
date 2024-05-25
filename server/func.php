@@ -15,13 +15,16 @@
         $conn = connect();
 
         try{
-            $ris = $conn->query("SELECT * FROM users WHERE email='$email'");
+            $ris = $conn->query("SELECT * FROM users AS A
+                                 INNER JOIN municipalities AS M USING(id_user)
+                                 WHERE A.email='$email'
+                                ");
         }catch(Exception $e){
             die("login");
         }
         if($ris -> num_rows > 0){
             $arr = $ris -> fetch_array(MYSQLI_ASSOC);
-            $_SESSION["id"] = $arr["id_user"];
+            $_SESSION["id"] = $arr["id_municipality"];
             if(password_verify($psw, $arr['password']))
                 return true;
             return false;
@@ -59,11 +62,11 @@
     }
 
     // array: alerts exixts - null: alerts not exists
-    function get_alerts() {
+    function get_alerts($id_municipality) {
         $conn = connect();
         
         try {
-            $result = $conn->query("SELECT * FROM alerts");
+            $result = $conn->query("SELECT * FROM alerts WHERE id_municipality = $id_municipality");
             if ($result->num_rows > 0) {
                 $alerts_array = array();
                 foreach($result as $row) {

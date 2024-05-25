@@ -12,24 +12,16 @@
                     $response = array("status" => "login_failed");
                 break;
             case "signup":
-
+                    // TODO
                 break;
-            // case "table":
-            //     $alerts = get_alerts();
-            //     if($alerts)
-            //         $response = array("status" => "table_success", "alerts" => $alerts);
-            //     else
-            //         $response = array("status" => "table_failed")
-            //     break;
+            case "table":
+                $alerts = get_alerts($_POST['id']);
+                if($alerts)
+                    $response = array("status" => "table_success", "alerts" => $alerts);
+                else
+                    $response = array("status" => "table_failed");
+                break;
         }
-    }
-
-    if($_SERVER["REQUEST_METHOD"] == "GET"){
-        $alerts = get_alerts();
-        if($alerts)
-            $response = array("status" => "table_success", "alerts" => $alerts);
-        else
-            $response = array("status" => "table_failed");
     }
 
     header('Content-Type: application/json');

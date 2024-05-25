@@ -7,6 +7,13 @@ let alerts = []
 
 let xhttp = new XMLHttpRequest()
 
+window.onload = function(){
+    if (localStorage.getItem('id'))
+        getAlerts()
+    else
+        window.location.href = "../index.html"
+}
+
 xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         let res = JSON.parse(this.response)
@@ -19,9 +26,17 @@ xhttp.onreadystatechange = function() {
     }
 }
 
-xhttp.open("GET", "../server/sito.php", true)
-xhttp.setRequestHeader("Cache-Control", "no-cache")
-xhttp.send()
+function getAlerts(){
+    console.log(localStorage.getItem("id"))
+
+    let formData = new FormData()
+    formData.append("id", localStorage.getItem('id'))
+    formData.append("status", "table")
+
+    xhttp.open("POST", "../server/sito.php", true)
+    xhttp.setRequestHeader("Cache-Control", "no-cache")
+    xhttp.send(formData)
+}
 
 async function makeTable(data) {
     var table = ""
