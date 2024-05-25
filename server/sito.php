@@ -21,6 +21,16 @@
                 else
                     $response = array("status" => "table_failed");
                 break;
+            case "update":
+                if($_POST['state'] == "DELETE")
+                    $res = delete($_POST['id']);
+                else
+                    $res = update($_POST['id'], $_POST['state']);
+                if($res)
+                    $response = array("status" => "update_success");
+                else
+                    $response = array("status" => "update_error");
+                break;
         }
     }
 

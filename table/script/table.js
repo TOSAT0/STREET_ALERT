@@ -16,69 +16,135 @@ window.onload = function(){
 
 xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-        let res = JSON.parse(this.response)
+        try {
+            let res = JSON.parse(this.response)
 
-        console.log(res)
+            console.log(res)
 
-        alerts = res.alerts
+            if (res.alerts && Array.isArray(res.alerts)) {
+                alerts = res.alerts
+                makeTable(alerts)
+            } else {
+                console.error("Invalid data format", res)
+            }
 
-        makeTable(alerts)
+            switch(res.status){
+                case "update_success":
+                    makeTable(alerts)
+                    break;
+                case "update_error":
+                    // TODO
+                    break;
+            }
+        } catch (error) {
+            console.error("Error parsing JSON", error)
+        }
     }
 }
 
-function getAlerts(){
-    console.log(localStorage.getItem("id"))
-
-    let formData = new FormData()
-    formData.append("id", localStorage.getItem('id'))
-    formData.append("status", "table")
-
+function send_request(formData){
     xhttp.open("POST", "../server/sito.php", true)
     xhttp.setRequestHeader("Cache-Control", "no-cache")
     xhttp.send(formData)
 }
 
+function getAlerts(){
+    let formData = new FormData()
+    formData.append("id", localStorage.getItem('id'))
+    formData.append("status", "table")
+    send_request(formData)
+}
+
+function modify(id, state){
+    let new_state = ""
+    if(state == "NEW")
+        new_state = "SEEN"
+    if(state == "SEEN")
+        new_state = "SOLVED"
+    if(state == "SOLVED")
+        new_state = "DELETE"
+    
+    if(new_state != "DELETE")
+        update_data(id, new_state)
+
+    let formData = new FormData()
+    formData.append("id", id)
+    formData.append("state", new_state)
+    formData.append("status", "update")
+    send_request(formData)
+}
+
+function date_diff(date1, date2) {
+    let start = new Date(date1)
+    let end = new Date(date2)
+    
+    start.setHours(0, 0, 0, 0)
+    end.setHours(0, 0, 0, 0)
+    
+    return (end - start) / (1000 * 60 * 60 * 24)
+}
+
+function update_data(id, new_state){
+    alerts = alerts.map(alert => {
+        if (alert.id_alert == id) {
+            alert.state = new_state;
+        }
+        return alert;
+    });
+}
+
 async function makeTable(data) {
-    var table = ""
-    for (var i = 0; i < data.length; i++){
+    let table = ""
+    for (let i = 0; i < data.length; i++){
         let address = await maptilersdk.geocoding.reverse([data[i].lon, data[i].lat])
         let via = ""
-        let state =""
-        if(address.features[0] != null)
-            via = address.features[0].place_name
-        else
-            via = " localita' non trovata "
+        let state = ""
+        let actionText = ""
 
-        var startDate = new Date(data[i]['start_date'])
-        var endDate = new Date(data[i]['end_date'])
-        var duration = (endDate - startDate) / (1000 * 60 * 60 * 24)
+        let duration = data[i]['end_date'] ? date_diff(data[i]['start_date'], data[i]['end_date']) : date_diff(data[i]['start_date'], new Date())
+
         if(data[i]['state']=='NEW'){
             state ="<img src='../img/new.png'>"
-        }
-        if(data[i]['state']=='SOLVED'){
+            actionText = "VISTO"
+        } else if(data[i]['state']=='SOLVED'){
             state ="<img src='../img/solved.png'>"
-        }
-        if(data[i]['state']=='SEEN'){
+            actionText = "ELIMINA"
+        } else if(data[i]['state']=='SEEN'){
             state ="<img src='../img/seen.png'>"
+            actionText = "RISOLTO"
         }
+
+        if(address.features && address.features[0] != null)
+            via = address.features[0].place_name
+        else
+            via = "Località non trovata"
+        
         table += "<tr id='" + data[i]['id_alert'] + "' class='" + data[i]['state'] + "'>"
         table += "<td>" + data[i]['id_alert'] + 
                  "</td><td>" + via +
-                 " </td><td>" + startDate.toISOString().slice(0, 10) + 
-                 "</td><td>" + (data[i]['end_date'] ? endDate.toISOString().slice(0, 10) : "#####") + 
-                 "</td><td>" + (duration > 0 ? duration.toFixed(2) : "#####") + 
+                 " </td><td>" + data[i]['start_date'] + 
+                 "</td><td>" + (data[i]['end_date'] ? data[i]['end_date'] : "#####") + 
+                 "</td><td>" + (duration > 0 ? duration.toFixed(0) : "#####") + 
                  "</td><td>" + (data[i]['description'] ? data[i]['description'] : "#####") +
                  "</td><td>" + state +
-                 "</td><td>" + "modifica" + "</td>"
+                 "</td><td class='action-btn' id='" + data[i]['id_alert'] + "' state='" + data[i]['state'] + "'>" + actionText + "</td>"
         table += "</tr>"
     }
     x.innerHTML = table
+
+    document.querySelectorAll('.action-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const id = this.getAttribute('id')
+            const state = this.getAttribute('state')
+            modify(id, state)
+        })
+    })
 }
 
 $('th').on('click', function(){
-    var column = $(this).data('column')
-    var order = $(this).data('order')
-    var text = $(this).html()
+    let column = $(this).data('column')
+    let order = $(this).data('order')
+    let text = $(this).html()
     text = text.substring(0, text.length - 1)
 
     if(column === "start_date" || column === "end_date" || column === "duration"){
@@ -91,37 +157,26 @@ $('th').on('click', function(){
         }
 
         alerts.sort((a, b) => {
-            var dataA
-            var dataB
+            let dataA
+            let dataB
             if(column === "start_date" || column === "end_date"){
                 dataA = new Date(a[column]).getTime()
                 dataB = new Date(b[column]).getTime()
             }
-            // if(column === "times"){
-            //     dataA = a.times
-            //     dataB = b.times
-            // }
             if(column === "duration"){
-                var startDateA = new Date(a.start_date).getTime();
-                var endDateA = new Date(a.end_date).getTime();
-                var startDateB = new Date(b.start_date).getTime();
-                var endDateB = new Date(b.end_date).getTime();
-                dataA = (endDateA - startDateA) / (1000 * 60 * 60 * 24);
-                dataB = (endDateB - startDateB) / (1000 * 60 * 60 * 24);
+                let startDateA = new Date(a.start_date).getTime()
+                let endDateA = new Date(a.end_date).getTime()
+                let startDateB = new Date(b.start_date).getTime()
+                let endDateB = new Date(b.end_date).getTime()
+                dataA = (endDateA - startDateA) / (1000 * 60 * 60 * 24)
+                dataB = (endDateB - startDateB) / (1000 * 60 * 60 * 24)
             }
             
             if(order == "desc"){
-                if (dataA < dataB)
-                    return -1;
-                if (dataA > dataB)
-                    return 1;
+                return dataA - dataB
             }else{
-                if (dataA < dataB)
-                    return 1;
-                if (dataA > dataB)
-                    return -1;
+                return dataB - dataA
             }
-            return 0
         })
 
         $(this).html(text)

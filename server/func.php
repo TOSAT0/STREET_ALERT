@@ -20,7 +20,7 @@
                                  WHERE A.email='$email'
                                 ");
         }catch(Exception $e){
-            die("login");
+            return false;
         }
         if($ris -> num_rows > 0){
             $arr = $ris -> fetch_array(MYSQLI_ASSOC);
@@ -40,7 +40,7 @@
             try{
                 $conn->query("INSERT INTO users VALUES(null,'$email','$psw')");
             }catch(Exception $e){
-                die("sign_up");
+                return false;
             }
             return true;
         }
@@ -54,7 +54,7 @@
         try{
             $ris = $conn->query("SELECT * FROM users WHERE email='$email'");
         }catch(Exception $e){
-            die("email_exist");
+            return false;
         }
         if($ris -> num_rows > 0)
             return true;
@@ -76,7 +76,36 @@
             }
             return null;
         } catch (Exception $e) {
-            die("get_alerts");
+            return null;
+        }
+    }
+
+    // true: alert updated - false: alert not updated
+    function update($id_alert, $state){
+        $conn = connect();
+
+        try {
+            $query = "UPDATE alerts SET state = '$state' ";
+            if($state == "SOLVED")
+                $query .= ", end_date = CURDATE() ";
+            $query .= "WHERE id_alert = $id_alert";
+
+            $conn->query($query);
+            return true;
+        } catch(Exception $e) {
+            die("update" . $e->getMessage());
+        }
+    }
+
+    // true: alert exist - flase: alert doesnt exist
+    function delete($id_alert){
+        $conn = connect();
+
+        try {
+            $conn->query("DELETE FROM alerts WHERE id_alert = $id_alert");
+            return true;
+        } catch(Exception $e) {
+            return false;
         }
     }
     
