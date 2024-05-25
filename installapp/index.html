@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Street Alert</title>
+    <link rel="stylesheet" href="style/index.css">
+    <link rel="manifest" href="../manifest.json">
+</head>
+
+
+
+<body>
+    
+    <div class="row">
+        <div class="area-container">
+            <h3 id="personal-area">Installa l'App Street Alert</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="account-container">
+            <button id="installButton" style="background-color: transparent;"><img src="../images/logo192.png" alt="Logo"></button>
+        </div>
+    </div>
+
+    
+    <div class="row">
+        
+    </div>
+
+</body>
+<script src="js/index.js">
+
+</script>
+<script>
+    let deferredPrompt;
+
+    window.addEventListener('beforeinstallprompt', (event) => {
+        event.preventDefault();
+        deferredPrompt = event;
+        showInstallPromotion();
+    });
+
+    function showInstallPromotion() {
+        const installButton = document.getElementById('installButton');
+        installButton.style.display = 'block';
+        installButton.addEventListener('click', () => {
+            installButton.style.display = 'none';
+            showInstallPrompt();
+        });
+    }
+
+    function showInstallPrompt() {
+        if (deferredPrompt) {
+            deferredPrompt.prompt();
+            deferredPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === 'accepted') {
+                    console.log('User accepted the install prompt');
+                } else {
+                    console.log('User dismissed the install prompt');
+                }
+                deferredPrompt = null;
+            });
+        }
+    }
+</script>
+<script>
+   
+</script>
+
+</html>

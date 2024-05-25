@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    background-color: #236736;
+}
+/*------------- PERSONAL-AREA -------------*/
+.area-container{
+    text-align: center;
+    margin-top: 50%;
+    font-size: 200%;
+}
+#personal-area{
+    padding: 30px;
+    color: #EFF0F0;
+    
+}
+/*------------- PERSONAL-AREA -------------*/
+
+
+
+/*------------- ACCOUNT-PNG -------------*/
+.account-container{
+    margin-top: 10%;
+    text-align: center;
+}
+
+/*------------- ACCOUNT-PNG -------------*/
+
