@@ -55,11 +55,13 @@ async function makeTable(data) {
 
         table += "<tr id='" + data[i]['id_alert'] + "' class='" + data[i]['state'] + "'>"
         table += "<td>" + data[i]['id_alert'] + 
-                 "</td><td>" + via + " </td><td>" + startDate.toISOString().slice(0, 10) + 
+                 "</td><td>" + via +
+                 " </td><td>" + startDate.toISOString().slice(0, 10) + 
                  "</td><td>" + (data[i]['end_date'] ? endDate.toISOString().slice(0, 10) : "NULL") + 
                  "</td><td>" + (duration > 0 ? duration.toFixed(2) : "NULL") + 
                  "</td><td>" + data[i]['times'] + 
-                 "</td><td>" + (data[i]['description'] ? data[i]['description'] : "EMPTY LINE") + "</td>"
+                 "</td><td>" + (data[i]['description'] ? data[i]['description'] : "EMPTY LINE") +
+                 "</td><td>" + data[i]['state'] + "</td>"
         table += "</tr>"
     }
     x.innerHTML = table
