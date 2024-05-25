@@ -57,11 +57,11 @@ async function makeTable(data) {
         table += "<td>" + data[i]['id_alert'] + 
                  "</td><td>" + via +
                  " </td><td>" + startDate.toISOString().slice(0, 10) + 
-                 "</td><td>" + (data[i]['end_date'] ? endDate.toISOString().slice(0, 10) : "NULL") + 
-                 "</td><td>" + (duration > 0 ? duration.toFixed(2) : "NULL") + 
-                 "</td><td>" + data[i]['times'] + 
-                 "</td><td>" + (data[i]['description'] ? data[i]['description'] : "EMPTY LINE") +
-                 "</td><td>" + data[i]['state'] + "</td>"
+                 "</td><td>" + (data[i]['end_date'] ? endDate.toISOString().slice(0, 10) : "#####") + 
+                 "</td><td>" + (duration > 0 ? duration.toFixed(2) : "#####") + 
+                 "</td><td>" + (data[i]['description'] ? data[i]['description'] : "#####") +
+                 "</td><td>" + data[i]['state'] +
+                 "</td><td>" + "modifica" + "</td>"
         table += "</tr>"
     }
     x.innerHTML = table
@@ -73,7 +73,7 @@ $('th').on('click', function(){
     var text = $(this).html()
     text = text.substring(0, text.length - 1)
 
-    if(column === "start_date" || column === "end_date" || column === "duration" || column === "times"){
+    if(column === "start_date" || column === "end_date" || column === "duration"){
         if(order == "desc"){
             $(this).data("order", "asc")
             text += '&#9660'
@@ -89,10 +89,10 @@ $('th').on('click', function(){
                 dataA = new Date(a[column]).getTime()
                 dataB = new Date(b[column]).getTime()
             }
-            if(column === "times"){
-                dataA = a.times
-                dataB = b.times
-            }
+            // if(column === "times"){
+            //     dataA = a.times
+            //     dataB = b.times
+            // }
             if(column === "duration"){
                 var startDateA = new Date(a.start_date).getTime();
                 var endDateA = new Date(a.end_date).getTime();
