@@ -43,7 +43,7 @@ async function makeTable(data) {
     for (var i = 0; i < data.length; i++){
         let address = await maptilersdk.geocoding.reverse([data[i].lon, data[i].lat])
         let via = ""
-
+        let state =""
         if(address.features[0] != null)
             via = address.features[0].place_name
         else
@@ -52,7 +52,15 @@ async function makeTable(data) {
         var startDate = new Date(data[i]['start_date'])
         var endDate = new Date(data[i]['end_date'])
         var duration = (endDate - startDate) / (1000 * 60 * 60 * 24)
-
+        if(data[i]['state']=='NEW'){
+            state ="<img src='../img/new.png'>"
+        }
+        if(data[i]['state']=='SOLVED'){
+            state ="<img src='../img/solved.png'>"
+        }
+        if(data[i]['state']=='SEEN'){
+            state ="<img src='../img/seen.png'>"
+        }
         table += "<tr id='" + data[i]['id_alert'] + "' class='" + data[i]['state'] + "'>"
         table += "<td>" + data[i]['id_alert'] + 
                  "</td><td>" + via +
@@ -60,7 +68,7 @@ async function makeTable(data) {
                  "</td><td>" + (data[i]['end_date'] ? endDate.toISOString().slice(0, 10) : "#####") + 
                  "</td><td>" + (duration > 0 ? duration.toFixed(2) : "#####") + 
                  "</td><td>" + (data[i]['description'] ? data[i]['description'] : "#####") +
-                 "</td><td>" + data[i]['state'] +
+                 "</td><td>" + state +
                  "</td><td>" + "modifica" + "</td>"
         table += "</tr>"
     }
