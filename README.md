@@ -44,8 +44,13 @@ Client:
 - **JavaScript**
 - **MapTiler**
 - **Leaflet**
+
 Server:
 - **PHP**
+
 Database:
 - **MySQL**
+
+## Deeployment e gestione del progetto
+Git/GitHub ha fornito una piattaforma integrata che supporta l'automazione, il monitoraggio e la gestione del progetto, contribuendo in modo significativo al successo del progetto durante tutto il ciclo di vita dello sviluppo del software.
 
