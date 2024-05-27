@@ -15,9 +15,9 @@
         $conn = connect();
 
         try{
-            $ris = $conn->query("SELECT * FROM users AS A
+            $ris = $conn->query("SELECT * FROM users AS U
                                  INNER JOIN municipalities AS M USING(id_user)
-                                 WHERE A.email='$email'
+                                 WHERE U.email = '$email'
                                 ");
         }catch(Exception $e){
             return false;
