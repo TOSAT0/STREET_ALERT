@@ -84,6 +84,17 @@ function date_diff(date1, date2) {
     return (end - start) / (1000 * 60 * 60 * 24)
 }
 
+function formatDate(dateString) {
+    let date = new Date(dateString);
+    let day = ("0" + date.getDate()).slice(-2);
+    let month = ("0" + (date.getMonth() + 1)).slice(-2);
+    let year = date.getFullYear();
+    let hours = ("0" + date.getHours()).slice(-2);
+    let minutes = ("0" + date.getMinutes()).slice(-2);
+    let seconds = ("0" + date.getSeconds()).slice(-2);
+    return `${day}-${month}-${year} ${hours}:${minutes}:${seconds}`;
+}
+
 function update_data(id, new_state){
     alerts = alerts.map(alert => {
         if (alert.id_alert == id) {
@@ -94,51 +105,51 @@ function update_data(id, new_state){
 }
 
 async function makeTable(data) {
-    let table = ""
-    for (let i = 0; i < data.length; i++){
-        let address = await maptilersdk.geocoding.reverse([data[i].lon, data[i].lat])
-        let via = ""
-        let state = ""
-        let actionText = ""
+    let table = "";
+    for (let i = 0; i < data.length; i++) {
+        let address = await maptilersdk.geocoding.reverse([data[i].lon, data[i].lat]);
+        let via = "";
+        let state = "";
+        let actionText = "";
 
-        let duration = data[i]['end_date'] ? date_diff(data[i]['start_date'], data[i]['end_date']) : date_diff(data[i]['start_date'], new Date())
+        let duration = data[i]['end_date'] ? date_diff(data[i]['start_date'], data[i]['end_date']) : date_diff(data[i]['start_date'], new Date());
 
-        if(data[i]['state']=='NEW'){
-            state ="<img src='../img/new.png'>"
-            actionText = "VISTO"
-        } else if(data[i]['state']=='SOLVED'){
-            state ="<img src='../img/solved.png'>"
-            actionText = "ELIMINA"
-        } else if(data[i]['state']=='SEEN'){
-            state ="<img src='../img/seen.png'>"
-            actionText = "RISOLTO"
+        if(data[i]['state'] == 'NEW'){
+            state = "<img src='../img/new.png'>";
+            actionText = "VISTO";
+        } else if(data[i]['state'] == 'SOLVED'){
+            state = "<img src='../img/solved.png'>";
+            actionText = "ELIMINA";
+        } else if(data[i]['state'] == 'SEEN'){
+            state = "<img src='../img/seen.png'>";
+            actionText = "RISOLTO";
         }
 
         if(address.features && address.features[0] != null)
-            via = address.features[0].place_name
+            via = address.features[0].place_name;
         else
-            via = "Località non trovata"
-        
-        table += "<tr id='" + data[i]['id_alert'] + "' class='" + data[i]['state'] + "'>"
+            via = "Località non trovata";
+
+        table += "<tr id='" + data[i]['id_alert'] + "' class='" + data[i]['state'] + "'>";
         table += "<td>" + data[i]['id_alert'] + 
-                 "</td><td>" + via +
-                 " </td><td>" + data[i]['start_date'] + 
-                 "</td><td>" + (data[i]['end_date'] ? data[i]['end_date'] : "#####") + 
+                 "</td><td>" + via + 
+                 " </td><td>" + formatDate(data[i]['start_date']) + 
+                 "</td><td>" + (data[i]['end_date'] ? formatDate(data[i]['end_date']) : "#####") + 
                  "</td><td>" + (duration > 0 ? duration.toFixed(0) : "#####") + 
-                 "</td><td>" + (data[i]['description'] ? data[i]['description'] : "#####") +
-                 "</td><td>" + state +
-                 "</td><td class='action-btn' id='" + data[i]['id_alert'] + "' state='" + data[i]['state'] + "'>" + actionText + "</td>"
-        table += "</tr>"
+                 "</td><td>" + (data[i]['description'] ? data[i]['description'] : "#####") + 
+                 "</td><td>" + state + 
+                 "</td><td class='action-btn' id='" + data[i]['id_alert'] + "' state='" + data[i]['state'] + "'>" + actionText + "</td>";
+        table += "</tr>";
     }
-    x.innerHTML = table
+    x.innerHTML = table;
 
     document.querySelectorAll('.action-btn').forEach(button => {
         button.addEventListener('click', function() {
-            const id = this.getAttribute('id')
-            const state = this.getAttribute('state')
-            modify(id, state)
-        })
-    })
+            const id = this.getAttribute('id');
+            const state = this.getAttribute('state');
+            modify(id, state);
+        });
+    });
 }
 
 $('th').on('click', function(){
