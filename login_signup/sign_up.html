@@ -6,18 +6,34 @@
         <meta name="theme-color" content="#236736">
         <title>Street Alert</title>
         
-        <link rel="stylesheet" href="style/login_signup.css">
+        <link rel="stylesheet" href="style/sign_up.css">
         <link rel="manifest" href="../manifest.json">
         <link rel="apple-touch-icon" href="../images/logo192.png">
     </head>
     <body>
-        <h1>SIGN UP</h1>
-        <input type="text" name="email" id="email" placeholder="Email"/><br/>
-        <input type="password" name="psw" id="psw" placeholder="Password"/><br/>
-        <button name="signUp" onclick="email()">SIGN UP</button>
-        <div id="error"></div>
-        
-        <script src="../index.js"></script>
+      
+
+        <div class="signup-container cell">
+            <h2> Registrati </h2>
+            <p> Possiedi un account ? <a href="login.html"> Accedi </a></p>
+                <form class="signup-form">
+                    <label for="email">Email</label>
+                    <input type="text" name="email" placeholder="email" id="email"/>
+                    <label for="psw" style="margin-top: 20px;"> Password</label>
+                    <input type="password" name="psw" class="psw" id="psw" />
+                    <label for="psw2" style="margin-top: 20px;"> Conferma Password</label>
+                    <input type="password" name="psw2" class="psw" />    
+                    <div class="toggle-password">
+                        <input type="checkbox" name="toggle_password" id="toggle_password" onclick="show_password()"> 
+                        <label for="toggle_password" style="padding-left: 10px; font-size: 15px;"> Show Passwords</label>
+                    </div>
+                        <button  name="signUp" id="signup-button" onclick="email()">Sign Up</button>
+                        <div id="error"></div>
+                </form>
+        </div>
+
         <script src="js/login_signup.js"></script>
+        <script src="../index.js"></script>
+         
     </body>
 </html>

@@ -22,3 +22,13 @@ if (event.target == modal) {
 function closeNav() {
 modal.style.display = "none";
 }
+
+function show_password(){
+    var password = document.getElementById("password-field");
+    
+    if(password.type === "password")
+        password.type = "text";
+    else
+        password.type = "password";
+
+}
