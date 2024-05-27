@@ -66,7 +66,12 @@
         $conn = connect();
         
         try {
-            $result = $conn->query("SELECT * FROM alerts WHERE id_municipality = $id_municipality ORDER BY state");
+            $query = "SELECT * FROM alerts WHERE id_municipality ";
+            if($id_municipality != 0)
+                $query .= "WHERE id_municipality = $id_municipality ";
+            $query .= "ORDER BY state";
+            
+            $result = $conn->query($query);
             if ($result->num_rows > 0) {
                 $alerts_array = array();
                 foreach($result as $row) {
