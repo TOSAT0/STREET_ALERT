@@ -2,7 +2,7 @@
 
 ## Descrizione del progetto
 ### Panoramica del progetto
-Street Alert e' una web app finalizzata per risolvere vari problemi stradali, ad esempio, buche strsegnaladali, etica mancante, semafori non funzionanti, e segnalarli al relativo comune, esso sara' in grado di visualizzare tutte le segnalazioni tramite l'apposita interfaccia designata.
+Street Alert e' una web app finalizzata per risolvere vari problemi stradali, come buche strsegnaladali, etica mancante, semafori non funzionanti, e segnalarli al relativo comune, esso sara' in grado di visualizzare tutte le segnalazioni tramite l'apposita interfaccia designata.
 
 ### Descrizione dettagliata
 L'area predisposta per gli utienti e' suddivisa in 3 parti:
