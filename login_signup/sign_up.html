@@ -11,12 +11,11 @@
         <link rel="apple-touch-icon" href="../images/logo192.png">
     </head>
     <body>
-      
-
+    
         <div class="signup-container cell">
             <h2> Registrati </h2>
             <p> Possiedi un account ? <a href="login.html"> Accedi </a></p>
-                <form class="signup-form">
+                <form class="signup-form" id="form">
                     <label for="email">Email</label>
                     <input type="text" name="email" placeholder="email" id="email"/>
                     <label for="psw" style="margin-top: 20px;"> Password</label>
@@ -27,13 +26,24 @@
                         <input type="checkbox" name="toggle_password" id="toggle_password" onclick="show_password()"> 
                         <label for="toggle_password" style="padding-left: 10px; font-size: 15px;"> Show Passwords</label>
                     </div>
-                        <button  name="signUp" id="signup-button" onclick="email()">Sign Up</button>
+                        <button name="signUp" id="signup-button" onclick="email()">Sign Up</button>
                         <div id="error"></div>
                 </form>
         </div>
 
+        <script>
+            function show_password(){
+                var password = document.getElementById("psw");
+                
+                if(password.type === "password")
+                    password.type = "text";
+                else
+                    password.type = "password";
+            }
+    
+        </script>
+
         <script src="js/login_signup.js"></script>
-        <script src="../index.js"></script>
-         
+        <script src="../js/index.js"></script>
     </body>
 </html>

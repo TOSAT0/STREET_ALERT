@@ -15,7 +15,7 @@
         <div class="login-container cell">
             <h2> Accedi </h2>
             <p> Non hai un account ? <a href="sign_up.html"> Registrati</a></p>
-            <form class="login-form">
+            <form class="login-form" id="form">
                 <label for="email">Email</label>
                 <input type="text" name="email" placeholder="email" id="email"/>
                 <label for="psw" style="margin-top: 20px;"> Password</label>
@@ -25,7 +25,7 @@
                     <input type="checkbox" name="toggle_password" id="toggle_password" onclick="show_password()"> 
                     <label for="toggle_password" style="padding-left: 10px; font-size: 15px;"> Show Password</label>
                 </div>
-                <button  name="login" id="loginButton" onclick="login()">Login</button>
+                <button  name="login" id="loginButton" onclick="login(event)">Login</button>
             </form>
         </div>
         <script src="../js/index.js"></script>
