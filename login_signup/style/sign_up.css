@@ -38,7 +38,7 @@ body {
     border-radius: 10px;
     border: 1px solid gray;
     margin-top: 10px;
-    width: 300px;
+    width: 80%;
 }
 
 #email:focus {

@@ -33,15 +33,13 @@ body {
     margin-top: 30px;
     align-items: center;
 }
-
-
-
+    
 #email, #psw {
     padding: 10px 10px 10px 10px;
     border-radius: 10px;
     border: 1px solid gray;
     margin-top: 10px;
-    width: 300px;
+    width: 80%;
 }
 
 #email:focus {
@@ -71,7 +69,7 @@ body {
     font-size: 15px;
 }
 
-#login-button:hover {
+#loginButton:hover {
     background-color: white;
     color: #303D50;
 }
