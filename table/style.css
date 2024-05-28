@@ -10,11 +10,7 @@ table {
     max-width: 170vh;
     padding:5px;
     width: 100%;
-    box-shadow: 0 5px 10px rgba(235, 0, 0, 0.1);
-    animation: float 5s infinite;
   }
-
-
 
   th {
     color:#232425;
@@ -28,6 +24,7 @@ table {
     
   }
 
+
   th:first-child {
     border-top-left-radius:3px;
   }
@@ -40,16 +37,8 @@ table {
   tr:hover td {
     background:#82dcff80;
     color:#707070;
-    border-top: 1px solid #22262e;
   }
    
-  tr:first-child {
-    border-top:none;
-  }
-  
-  tr:last-child {
-    border-bottom:none;
-  }
    
   tr:nth-child(odd) td {
     background:#EBEBEB;
@@ -71,10 +60,7 @@ table {
     background:#FFFFFF;
     padding:20px;
     text-align:center;
-    vertical-align:middle;
-    font-weight:300;
     font-size:18px;
-    text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
     border-right: 1px solid #C1C3D1;
   }
   
@@ -108,4 +94,8 @@ table {
 
 .hover:hover{
   cursor: pointer;
+}
+
+#durata{
+  width: 170px;
 }
