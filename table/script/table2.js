@@ -126,26 +126,35 @@ async function makeTable(data) {
         let via = "";
         let state = "";
         let actionText = "";
+        let name_class = data[i]['state'];
 
         let duration = data[i]['end_date'] ? date_diff(data[i]['start_date'], data[i]['end_date']) : date_diff(data[i]['start_date'], new Date());
 
-        if(data[i]['state'] == 'NEW'){
-            state = "<img src='../img/new.png'>";
-            actionText = "VISTO";
-        } else if(data[i]['state'] == 'SOLVED'){
-            state = "<img src='../img/solved.png'>";
-            actionText = "ELIMINA";
-        } else if(data[i]['state'] == 'SEEN'){
-            state = "<img src='../img/seen.png'>";
-            actionText = "RISOLTO";
-        }
+            state = " <div class= 'state-div "+name_class+" '> <i class='fa-solid fa-circle '></i> <p style=' margin-left: 10px;'> "+name_class+" </p> </div>"
+
+            switch(data[i]['state']){
+
+                case 'NEW':
+                    actionText = " <u class='hover'> VISIONA</u> </span> <i style=' margin-left: 10px; ' class='fa-solid fa-eye hover'></i>"
+                    break;
+
+                case 'SEEN':
+                    actionText = "<u class='hover'> RISOLTO</u> <i style=' margin-left: 10px; ' class='fa-solid fa-check hover'></i>"
+                    break;
+
+                case 'SOLVED':
+                    // VERSIONE COLORATA ----> actionText = "<u  style='color: red;'> RIMUOVI</u> <i style=' margin-left: 10px; color: red;' class='fa-solid fa-trash hover'></i>"
+                    actionText = "<u class='hover'> RIMUOVI</u> <i style=' margin-left: 10px; ' class='fa-solid fa-trash hover'></i>"
+                    break;
+            }
+            
 
         if(address.features && address.features[0] != null)
             via = address.features[0].place_name;
         else
             via = "Località non trovata";
 
-        table += "<tr id='" + data[i]['id_alert'] + "' class='" + data[i]['state'] + "'>";
+        table += "<tr id='" + data[i]['id_alert'] +"'>";
         table += "<td>" + data[i]['id_alert'] + 
                  "</td><td>" + via + 
                  " </td><td>" + formatDate(data[i]['start_date']) + 
