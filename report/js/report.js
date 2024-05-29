@@ -6,6 +6,7 @@ const x = document.getElementById("demo")
 const select = document.getElementById("select")
 const same_input = document.getElementById("same_input_content")
 const cards = document.getElementById("cards_content")
+const content_button = document.getElementById("content_button")
 
 let xhttp = new XMLHttpRequest()
 let gps = {
@@ -27,13 +28,13 @@ xhttp.onreadystatechange = function() {
                 break
             case "photo":
             	moderateImage()
+                content_button.innerHTML = "CARICATO"
             	break
             case "reported":
-                x.innerHTML = "<h1>Database aggiornato</h1>"
                 uploadImage()
                 break
             case "modified":
-            	x.innerHTML = "<h1>Database aggiornato</h1>"
+            	content_button.innerHTML = "CARICATO"
                 break
             case "error":
                 var same_input_content = ""
@@ -89,6 +90,7 @@ function generateInput(id_user, types){
     </div>`
     
     select.innerHTML = content
+    content_button.innerHTML = "INVIA"
 }
 
 function generateUniqueId() {
