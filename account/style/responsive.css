@@ -29,6 +29,21 @@
     #user-email{
         margin: 0 5%;
     }
+    input[type=submit] {
+        margin-top: 20px;
+    }
+}
+
+@media only screen and (max-width: 370px) {
+    input[type=submit] {
+        margin-top: 20px;
+    }
+}
+
+@media only screen and (min-width: 371px) {
+    #personal-area{
+        padding: 8px;
+    }
 }
 
 @media only screen and (min-width: 600px){
