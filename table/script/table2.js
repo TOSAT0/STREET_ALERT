@@ -22,6 +22,7 @@ let alerts = [
 let xhttp = new XMLHttpRequest()
 
 window.onload = function(){
+    localStorage.setItem("id",0)
     if (localStorage.getItem('id'))
         getAlerts()
     else
