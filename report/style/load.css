@@ -1,34 +1,14 @@
-body {
+/* body {
     margin: 0 auto;
     padding: 20px;
     max-width: 1200px;
     overflow-y: scroll;
     font-family: "Open Sans", sans-serif;
     font-weight: 400;
-    color: #777;
-    background-color: #f7f7f7;
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
-}
-
-.content {
-    padding: 15px;
-    overflow: hidden;
-    background-color: #e7e7e7;
-    background-color: rgba(0, 0, 0, 0.06);
-}
-
-.clear {
-    clear: both;
-}
-
-/* -----------------------------------------
-=CSS3 Loading animations
--------------------------------------------- */
-
-/* =Elements style
----------------------- */
+} */
 
 .load-wrapp {
     display: inline-block;
@@ -40,7 +20,7 @@ body {
     width: 15px;
     height: 15px;
     border-radius: 15px;
-    background-color: #4b9cdb;
+    background-color: #ffffff;
     margin: 0 5px; /* Spazio tra i cerchi */
 }
 

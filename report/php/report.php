@@ -9,7 +9,8 @@
                 report($_POST['photo'], $_POST['lat'], $_POST['lon'], $_POST['error'], $_POST['description'], id_municipality($_POST['municipality']), $_POST['id_user'], $_POST['id_type']);
                 $response = array("status" => "reported");
             }else{
-                $response = array("status" => "error", "same" => $same);
+                $response = array("status" => "reported");
+                // $response = array("status" => "error", "same" => $same);
             }
         }
         if($_POST['status'] == "exist"){
