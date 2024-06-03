@@ -2,7 +2,7 @@ let xhttp = new XMLHttpRequest()
 
 xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-        console.log(this.response)
+        console.log(this.response);
         res = JSON.parse(this.response)
 
         switch(res.status){
@@ -23,6 +23,9 @@ function login(event){
     event.preventDefault();
 
     let formData = new FormData()
+
+    console.log(document.getElementById("username-field").value)
+    console.log(document.getElementById("password-field").value)
 
     formData.append("status", "login")
     formData.append("email", document.getElementById("username-field").value)

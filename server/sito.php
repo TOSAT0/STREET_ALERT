@@ -7,7 +7,9 @@
         switch($status){
             case "login":
                 if(login($_POST['email'], $_POST['psw']))
+                {
                     $response = array("status" => "login_success", "id" => $_SESSION['id']);
+                }
                 else
                     $response = array("status" => "login_failed");
                 break;

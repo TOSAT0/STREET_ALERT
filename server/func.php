@@ -22,6 +22,7 @@
         }catch(Exception $e){
             return false;
         }
+
         if($ris -> num_rows > 0){
             $arr = $ris -> fetch_array(MYSQLI_ASSOC);
             $_SESSION["id"] = $arr["id_municipality"];
@@ -66,10 +67,10 @@
         $conn = connect();
         
         try {
-            $query = "SELECT * FROM alerts ";
+            $query = "SELECT * FROM alerts";
             if($id_municipality != 0)
-                $query .= "WHERE id_municipality = $id_municipality ";
-            $query .= "ORDER BY state";
+                $query .= " WHERE id_municipality = $id_municipality";
+            $query .= " ORDER BY state";
             
             $result = $conn->query($query);
             if ($result->num_rows > 0) {
