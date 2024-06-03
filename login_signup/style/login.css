@@ -62,9 +62,6 @@ body {
     margin-top: 30px;
     font-weight: 700;
     text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-size: 15px;
 }
 
@@ -75,6 +72,4 @@ body {
 
 .contentButton{
     text-align: center;
-    padding-left: calc(50%+130px);
-    display: flex;
 }
