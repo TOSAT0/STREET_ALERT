@@ -21,6 +21,7 @@ table {
     font-weight: normal;
     padding:20px;
     text-align:center;
+    text-wrap: nowrap;
     
   }
 
