@@ -145,7 +145,9 @@ async function makeTable(data) {
             "</td><td>" + (duration > 0 ? duration.toFixed(0) : "#####") +
             "</td><td>" + (data[i]['description'] ? data[i]['description'] : "#####") +
             "</td><td>" + state +
-            "</td><td class='action-btn' id='" + data[i]['id_alert'] + "' state='" + data[i]['state'] + "'>" + actionText + "</td>";
+            "</td><td class='action-btn' id='" + data[i]['id_alert'] + "' state='" + data[i]['state'] + "'>" + actionText +
+            "</td><td><i class='fa-solid fa-circle-info hover' id='image-" + data[i]['photo'] + "' onclick='showImage(this.id)'></i></td>";
+
         table += "</tr>";
     }
     x.innerHTML = table;
@@ -202,3 +204,4 @@ $('th').on('click', function(){
 
     makeTable(alerts)
 })
+

@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="../style/style.css">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style/style.css">
 
-        <script src="https://cdn.maptiler.com/maptiler-sdk-js/v2.0.3/maptiler-sdk.umd.min.js"></script>
-        <link href="https://cdn.maptiler.com/maptiler-sdk-js/v2.0.3/maptiler-sdk.css" rel="stylesheet" />
-    </head>
-    <body>
+    <script src="https://cdn.maptiler.com/maptiler-sdk-js/v2.0.3/maptiler-sdk.umd.min.js"></script>
+    <link href="https://cdn.maptiler.com/maptiler-sdk-js/v2.0.3/maptiler-sdk.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="obscure">
         <div class="top-banner">
             <div class="container">
                 <div class="small-bold-text banner-text">Street Alert</div>
@@ -15,7 +16,7 @@
         </div>
 
         <table class="table">
-            <tr  class="bg-info">
+            <tr class="bg-info">
                 <th data-column="id_alert" data-order="desc">ID</th>
                 <th data-column="street" data-order="desc">VIA</th>
                 <th data-column="start_date" data-order="desc">INIZIO &#9650</th>
@@ -23,12 +24,67 @@
                 <th id="durata" data-column="duration" data-order="desc">DURATA &#9650</th>
                 <th data-column="description" data-order="desc">DESCRIZIONE</th>
                 <th data-column="state" data-order="desc">STATO</th>
-                <th data-column="update" data-order="desc">MODIFICA</th></tr>
+                <th data-column="update" data-order="desc">MODIFICA</th>
+                <th data-column="photo" data-order="desc"></th>
             </tr>
             <tbody id="alerts"></tbody>
         </table>
-        <script src="https://kit.fontawesome.com/c1fc3d2826.js" crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script type="module" src="script/table.js"></script>
-    </body>
+    </div>
+    
+    <div class="container-image"> 
+        <div class="image-section"> 
+        </div>
+    </div>
+    
+    <script src="https://kit.fontawesome.com/c1fc3d2826.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="module" src="script/table.js"></script>
+    <script>
+        var container = document.querySelector('.container-image');
+        var obscure = document.querySelector('.obscure');
+        window.onload = function(){
+            document.querySelector('.obscure').style.opacity = 0;
+            document.querySelector('.obscure').style.backgroundColor = "transparent";
+        }
+
+        function showImage(imageId) {
+            container.style.display = "block";
+            obscure.style.opacity = 0.5;
+            obscure.style.pointerEvents = "none";
+
+            const imageURL = imageId.replace("image-",""); 
+            const imageSection = document.querySelector('.image-section');
+            const img = document.createElement('img');
+            const closeLink = document.createElement('a');
+
+            imageSection.innerHTML = '';
+            img.src = imageURL; 
+            img.alt = 'Descrizione immagine';
+
+            imageSection.appendChild(img);
+            closeLink.id = 'close';
+            closeLink.onclick = hideTable;
+            closeLink.innerHTML = '<i class="fa-solid fa-x"></i>';
+
+            imageSection.appendChild(closeLink);
+        }
+
+        function hideTable(){
+            container.style.display = "none";
+            obscure.style.pointerEvents = "auto";
+            obscure.style.opacity = 1;
+            obscure.style.backgroundColor= "transparent";
+            
+            // Rimuovi il tag <a> per chiudere l'immagine
+            const closeLink = document.getElementById('close');
+            if (closeLink) {
+                closeLink.remove();
+            }
+        }
+
+
+
+
+    </script>
+</body>
 </html>

@@ -99,3 +99,44 @@ table {
 #durata{
   width: 170px;
 }
+
+.container-image{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  z-index: 20;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 1000px;
+  height: 600px;
+  display: none;
+  border-radius: 20px;
+}
+
+#close{
+  border-radius: 100%;
+  color: white;
+  background-color: red;
+  position: absolute;
+  right: -2%;
+  top: -4%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+#close:hover{
+  background-color: #6D2929;
+  transition: 0.3s;
+}
+
+.obscure{
+  width: 100%;
+  height: 100%;
+}
+
