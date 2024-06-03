@@ -66,7 +66,7 @@
         $conn = connect();
         
         try {
-            $query = "SELECT * FROM alerts WHERE id_municipality ";
+            $query = "SELECT * FROM alerts ";
             if($id_municipality != 0)
                 $query .= "WHERE id_municipality = $id_municipality ";
             $query .= "ORDER BY state";
