@@ -11,12 +11,6 @@ window.onload = function(){
     }
 }
 
-document.getElementById('form').addEventListener('submit', function(event) {
-    event.preventDefault()
-    email()
-    login()
-})
-
 xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         console.log(this.response)
