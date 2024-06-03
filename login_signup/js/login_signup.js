@@ -5,13 +5,6 @@ const error = document.getElementById('error')
 
 let xhttp = new XMLHttpRequest()
 
-// window.onload = function(){
-// 	if (sessionStorage.getItem('email') && sessionStorage.getItem('psw')){
-//         e.value = sessionStorage.getItem('email')
-//         p.value = sessionStorage.getItem('psw')
-//     }
-// }
-
 xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         console.log(this.response)

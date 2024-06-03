@@ -17,18 +17,20 @@
       <p> Possiedi un account? <a href="login.html"> Accedi </a></p>
       <form class="signup-form" id="form">
         <label for="email">Email</label>
-        <input type="text" name="email" placeholder="email" id="email"/>
+        <input type="text" name="email" placeholder="Email" id="email"/>
         <label for="psw" style="margin-top: 20px;"> Password</label>
-        <input type="password" name="psw" class="psw" id="psw" />
+        <input type="password" name="psw" class="psw" id="psw" placeholder="Password"/>
         <label for="psw2" style="margin-top: 20px;"> Conferma Password</label>
-        <input type="password" name="psw2" class="psw" id="psw_confirm"/>
+        <input type="password" name="psw2" class="psw" id="psw_confirm" placeholder="Conferma password"/>
         <div class="toggle-password">
-          <input type="checkbox" name="toggle_password" id="toggle_password" onclick="show_password()"> 
+          <input type="checkbox" name="toggle_password" id="toggle_password" onclick="show_password()">
           <label for="toggle_password" style="padding-left: 10px; font-size: 15px;"> Show Passwords</label>
         </div>
         <div id="error"></div>
       </form>
-      <button name="signUp" id="signup-button" onclick="email()">Registrati</button><br>
+      <div id="contentButton">
+        <button name="signUp" id="signup-button" onclick="email()">Registrati</button><br>
+      </div>
     </div>
 
     <script>

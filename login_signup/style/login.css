@@ -11,7 +11,6 @@ body {
     background-color:#4D9D64 ;
 }
 
-
 .login-container {
     margin-inline: auto;
     overflow: hidden;
@@ -74,3 +73,6 @@ body {
     color: #303D50;
 }
 
+.contentButton{
+    text-align: center;
+}
