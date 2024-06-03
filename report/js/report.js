@@ -178,7 +178,7 @@ function httpRequest(id_alert, status){
     formData.append("municipality", gps.municipality)
     formData.append("description", document.getElementById("description").value)
     formData.append("id_type", document.getElementById("types").value)
-    formData.append("photo", "/uploads/" + photo)
+    formData.append("photo", "streetalert.altervista.org/uploads/" + photo)
     formData.append("id_alert", id_alert)
     formData.append("status", status)
     
