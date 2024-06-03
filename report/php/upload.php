@@ -2,7 +2,7 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $check = getimagesize($_FILES["image"]["tmp_name"]);
         if ($check !== false) {
-            move_uploaded_file($_FILES["image"]["tmp_name"], "../uploads/" . $_POST['photo']);
+            move_uploaded_file($_FILES["image"]["tmp_name"], "../../uploads" . $_POST['photo']);
         }
         
         header('Content-Type: application/json');
