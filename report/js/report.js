@@ -168,27 +168,6 @@ async function getMunicipality() {
     });
 }
 
-// async function getMunicipalityAndPostcode() {
-//     return new Promise((resolve, reject) => {
-//         maptilersdk.geocoding.reverse([gps.lon, gps.lat])
-//             .then(result => {
-//                 for(let i = 0; i < result.features.length; i++) {
-//                     let feature = result.features[i];
-//                     if(feature.place_type.includes("municipality")) {
-//                         let municipality = feature.text_it;
-//                         let postcode = feature.properties.postcode; // Assumendo che il CAP sia in 'properties.postcode'
-//                         resolve({ municipality, postcode });
-//                         return;
-//                     }
-//                 }
-//                 reject("Municipality not found");
-//             })
-//             .catch(error => {
-//                 reject(error);
-//             });
-//     });
-// }
-
 function httpRequest(id_alert, status){
 	console.log("status: " + status)
 
@@ -199,7 +178,7 @@ function httpRequest(id_alert, status){
     formData.append("municipality", gps.municipality)
     formData.append("description", document.getElementById("description").value)
     formData.append("id_type", document.getElementById("types").value)
-    formData.append("photo", "uploads/" + photo)
+    formData.append("photo", "/uploads/" + photo)
     formData.append("id_alert", id_alert)
     formData.append("status", status)
     
