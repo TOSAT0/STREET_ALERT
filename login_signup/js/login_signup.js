@@ -1,15 +1,16 @@
 const e = document.getElementById('email')
 const p = document.getElementById('psw')
+const p2 = document.getElementById('psw-confirm')
 const error = document.getElementById('error')
 
 let xhttp = new XMLHttpRequest()
 
-window.onload = function(){
-	if (sessionStorage.getItem('email') && sessionStorage.getItem('psw')){
-        e.value = sessionStorage.getItem('email')
-        p.value = sessionStorage.getItem('psw')
-    }
-}
+// window.onload = function(){
+// 	if (sessionStorage.getItem('email') && sessionStorage.getItem('psw')){
+//         e.value = sessionStorage.getItem('email')
+//         p.value = sessionStorage.getItem('psw')
+//     }
+// }
 
 xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
