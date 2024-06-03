@@ -32,18 +32,18 @@
     </div>
 
     <script>
-      function show_password(){
-        var password = document.getElementById("psw");
-        var password_confirm = document.getElementById("psw_confirm");
-
-        if(password.type == "password"){
-          password.type = "text";
-          password_confirm.type = "text";
-        }else{
-          password.type = "password";
-          password_confirm.type = "password";
+        function show_password(){
+            var password = document.getElementById("psw");
+            var password_confirm = document.getElementById("psw_confirm");
+            
+            if(password.type == "password"){
+                password.type = "text";
+                password_confirm.type = "text";
+            }else{
+                password.type = "password";
+                password_confirm.type = "password";
+            }
         }
-      }
     </script>
 
     <script src="js/login_signup.js"></script>
