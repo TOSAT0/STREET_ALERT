@@ -13,7 +13,15 @@
         overflow: initial;
     }
 
-    
+    .nav-links {
+        position: absolute;
+        background-color: white;
+        left: -100%;
+        top: 100%;
+        width: 100%;
+        padding-block: 20px;
+    }
+
 
     .nav-links.active {
         left: 0;
@@ -35,6 +43,18 @@
     .cta-section {
         padding-block: 80px;
     }
+
+    .hidden {
+        opacity: 0;
+        transition: all .5s;
+        transform: translateY(20%);
+    }
+    
+    .show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
 }
 
 @media screen and (max-width: 767px) {

@@ -14,73 +14,90 @@
 
     <div class="top-banner">
         <div class="container">
-            <div class="small-bold-text banner-text">
-            <a href="#" class="company-logo">
-                <img src="app/images/logo192.png" alt="company logo" >
-            </a>
-            <br>Street Alert
-        </div> <!-- QUESTO DIV VA TOLTO IN FASE FINALE NON TOCCATE NULLA-->
+            <div class="small-bold-text banner-text">Street Alert</div> <!-- QUESTO DIV VA TOLTO IN FASE FINALE NON TOCCATE NULLA-->
         </div>
     </div>
 
     <!-- navigazione  -->
     <nav>
         <div class="container main-nav flex">
-            
+            <a href="#" class="company-logo">
+                <img src="img/logo.png" alt="company logo" >
+            </a>
             <div class="nav-links" id="nav-links">
                 <ul class="flex">
                     <li><div id="table"></div></li>
-                    <li><div id="login"></div></li>
+                    <li><a href="login/login.html" class="hover-link secondary-button">Login</a></li>
+                    <li><a href="signup/signup.html" class="hover-link primary-button">Sign up</a></li>
                 </ul>
             </div>
-            
+            <a href="#" class="nav-toggle hover-link" id="nav-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </a>
         </div>
     </nav>
 
     <!--  header -->
     <header>
         <div class="container header-section flex">
-            
-            <div class="container flex cta-section-container"><br>
-               
-                <h1 style=" margin-top: 20px; max-width: 70%; color: black; ">Street Alert, a servizio per il tuo coumune!</h1>
-                <p style=" margin-top: 20px; max-width: 70%; color: black; text-align: justify;">Attualmente in Italia, si stima che oltre il 30% degli incidenti stradali sia causato da mancate segnalazioni tempestive. Street Alert mira a ridurre drasticamente questa percentuale, rendendo le strade più sicure per tutti.</p>
+            <div class="header-left">
+                <h1>A servizio del tuo comune!</h1>
+                <p style=" margin-top: 20px;">Attualmente in Italia, si stima che oltre il 30% degli incidenti stradali sia causato da mancate segnalazioni tempestive. Street Alert mira a ridurre drasticamente questa percentuale, rendendo le strade più sicure per tutti.</p>
                 <a href="app" class="primary-button get-started-btn"> Inizia </a>
             </div>
-            
+            <div class="header-right">
+                <img src="img/woman.png" alt="hero image">
+            </div>
         </div>
     </header>
 
+    <!-- sezione funzioni -->
+    <section class="features-section ">
+        <div class="container">
+            <div class="features-header">
+                <h2 class="features-heading-text">Da uno sguardo alla mappa</h2>
+                <a href="#" class="secondary-button">Maggiori dettagli <i class="fa-solid fa-right-long"></i></a>
+            </div>
+        </div>
+    </section>
+    <!-- sezione compagnie -->
 
+    <section class="companies-section">
+        <div class="container">
+            <div class="small-bold-text companies-header">I servizi a cui ci appoggiamo</div>
+            <div class="logos flex">
+                <img class="logo" src="img/maptiler-logo.png" alt="immagine maptiler">
+                <img class="logo" src="img/github-logo.png" alt="immagine github">
+                <img class="logo" src="img/150-1506141_javascript-logo-png.png" alt="immagine linguaggi">
+                <img class="logo" src="img/altervista-logo-horizontal-750x198.png" alt="immagine linguaggi">
+                <img class="logo" src="img/MySQL_textlogo.svg.png" alt="immagine linguaggi">
+            </div>
+        </div>
+    </section>
 
     <!-- sezione funzioni -->
 
-    <section class="features-section">
+    <section class="features-section ">
         <div class="container">
-            
-            <div class="features-area flex">
+            <div class="features-area hidden flex">
                 <div class="features-card flex">
-                    <img src="img/map.png" alt="carta">
-                    <h3>Home</h3>
-                    <p class="features-heading-text">Permette al'utente di visualizzare la mappa con le segnalazioni e il loro stato di avanzamento.</p>
+                    <img src="img/account.png" alt="Account">
+                    <h3>Area Personale</h3>
                 </div>
                 <div class="features-card flex">
-                    <img src="img/mapdetails.png" alt="carta1">
-                    <h3>Dettagli segnalazione</h3>
-                    <p class="features-heading-text">L'utente può vedere in dettaglio le segnalazioni fatte da altri utenti o le sue.</p>
+                    <img src="img/alert.png" alt="Alert">
+                    <h3>Segnalazioni</h3>
                 </div>
                 <div class="features-card flex">
-                    <img src="img/alert.png" alt="carta2">
-                    <h3>Segnala</h3>
-                    <p class="features-heading-text">Qui l'utente premendo sulla fotocamera può scattare unafoto alla segnalzione che vuole fare e mettere i dettagli della segnalazione. </p>
+                    <img src="img/map.png" alt="Mappa">
+                    <h3>Mappa</h3>
                 </div>
                 <div class="features-card flex">
-                    <img src="img/account.png" alt="carta3">
-                    <h3>Area personale</h3>
-                    <p class="features-heading-text">L'are personale dell'utente permette all'utente di uscire dal proprio account o vedere con quale account ha effettuato l'accesso. </p>
+                    <img src="img/mapdetails.png" alt="Dettagli">
+                    <h3>Dettagli Segnalazioni</h3>
                 </div>
                 
-            </div> 
+            </div>
         </div>
     </section>
 
@@ -89,30 +106,38 @@
 
     <section class="cta-section" style="padding-top: 80px; padding-bottom: 80px;">
         <div class="container flex cta-section-container">
-            <h2>Sei un Comune? Aderisci all'iniziativa!</h2>
-            <p>Invia una mail per rendere il tuo comune più sicuro</p>
-            <a href="mailto:streetalert.it@gmail.com?subject=Adesiona%20all'iniziativa%20di%20Street%20Alert" class="primary-button">Invia mail</a>
-
+            <h2>Diventa un collaboratore</h2>
+            <p>Agisci adesso, per rendere le strade migliori !</p>
+            <a href="mailto:streetalert.it@gmail.com?subject=Adesiona%20all'iniziativa%20di%20Street%20Alert" class="primary-button"> Inizia </a>
         </div>
     </section>
 
     <!-- sezione footer -->
 
     <footer>
-        <div class="container footer-container">
-                <!-- sezione compagnie -->
-                <section class="companies-section">
-                    <div class="container">
-                        <div class="small-bold-text companies-header">I servizi a cui ci appoggiamo</div>
-                        <div class="logos flex">
-                            <img class="logo" src="img/maptiler-logo.png" alt="immagine compagnia">
-                            <img class="logo" src="img/altervista-logo-horizontal-750x198.png" alt="immagine compagnia1">
-                            <img class="logo" src="img/150-1506141_javascript-logo-png.png" alt="immagine compagnia1">
-                            <img class="logo" src="img/MySQL_textlogo.svg.png" alt="immagine compagnia1">
-                        </div>
-                    </div>
-                </section>
-            
+        <div class="container flex footer-container">
+            <a href="#" class="company-logo">
+                <img src="img/logo.png" alt="company logo">
+            </a>
+            <div class="link-column flex">
+                <h4>Street Alert</h4>
+                <a href="#" class="hover-link">Notizie</a>
+                <a href="#" class="hover-link">Servizio di Host</a>
+                <a href="#" class="hover-link">Blog</a>
+                <a href="#" class="hover-link">Contatti</a>
+            </div>
+            <div class="link-column flex">
+                <h4>Azienda</h4>
+                <a href="#" class="hover-link">Chi Siamo</a>
+                <a href="#" class="hover-link">Contatti</a>
+                <a href="#" class="hover-link">Opinioni</a>
+            </div>
+            <div class="link-column flex">
+                <h4>Community</h4>
+                <a href="#" class="hover-link">FAQ</a>
+                <a href="#" class="hover-link">Supporto</a>
+                <a href="#" class="hover-link">Ringraziamenti</a>
+            </div>
         </div>
     </footer>
 
@@ -120,9 +145,6 @@
 
     <div class="subfooter">
         <div class="container flex subfooter-container">
-            <div class="flex">
-                <a href="https://altervista.org"  target="_blank" class="hover-link">Servizio di Host</a>
-            </div>
             <a class="hover-link" href="#">Privacy policy</a>
             <a class="hover-link" href="#">Terms & Condition</a>
             <a class="hover-link" href="#">Security Information</a>
@@ -134,7 +156,7 @@
     </div>
 
     <script src="https://kit.fontawesome.com/c1fc3d2826.js" crossorigin="anonymous"></script>
-    <script src="script/sito.js"></script>
+    <script  src="script/sito.js"></script>
 
     <script>
         const toggleButton = document.getElementById('nav-toggle');
@@ -143,6 +165,8 @@
         toggleButton.addEventListener('click', () => {
             navLinks.classList.toggle('active');
         })
+
+        
 
     </script>
 </body>

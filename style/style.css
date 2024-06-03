@@ -9,10 +9,10 @@
 }
 
 :root {
-    --primary-text-color: #454a52;
-    --secondary-text-color: #4b6783;
+    --primary-text-color: #303D50;
+    --secondary-text-color: #506E86;
     --accent-color:#6BAF7D ;
-    --accent-color-dark: #6BAF7D;
+    --accent-color-dark: #28703c;
     --padding-inline-sect: 20px;
 }
 
@@ -106,11 +106,22 @@ ul {
     color: var(--accent-color) !important;
 }
 
+.hidden {
+    opacity: 0;
+    transition: all .5s;
+    transform: translateY(50%);
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* top banner */
 
 .top-banner {
     background-image: url(); 
-    background-color: #6BAF7D;
+    background-color: #236736;
     background-size: 300px;
 }
 
@@ -125,14 +136,15 @@ ul {
 .main-nav {
     margin-top: 20px;
     justify-content: space-between;
+    align-items: start;
 }
 
 .company-logo img {
-    width: 100px;
+    width: 240px;
 }
 
 .nav-links {
-    flex-basis: 100%;
+    flex-basis: 730px;
 }
 
 .nav-links ul {
@@ -148,14 +160,11 @@ ul {
 
 header {
     padding: 50px var(--padding-inline-section) 0;
-    padding-top: 5%;
-    padding-bottom: 20%;
 }
 
 .header-section {
-
     justify-content: center;
-    gap: 20px;
+    gap: 50px;
 }
 
 .header-left {
@@ -184,6 +193,9 @@ header {
     color: var(--primary-text-color);
 }
 
+.companies-section {
+    margin-top: 20px;
+}
 .logos {
     justify-content: space-evenly;
     flex-wrap: wrap;
@@ -199,39 +211,38 @@ header {
 .features-section {
     margin-top: 50px;
     padding: 80px var(--padding-inline-section) 0;
-    padding-bottom: 10%;
+    background-image: url(); 
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .features-header {
     text-align: center;
     margin-bottom: 40px;
     margin-top: 40px;
-    
 }
 
-
+.features-heading-text {
+    margin-bottom: 20px;
+}
 
 .features-area {
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 10px;
-    
+    gap: 20px;
+    margin-top: 100px;
 }
 
 .features-card {
     flex-direction: column;
-    gap: 10px;
-    max-width: 20%;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    gap: 20px;
+    max-width: 30%;
     text-align: center;
 }
 
 .features-card img {
-    width: 260px;
-   
+    width: 240px;
 }
-
 
 /* Parte delle features pirncipali*/
 
@@ -256,49 +267,7 @@ header {
     align-items: flex-start;
 }
 
-/* examples section */
 
-.examples-section {
-    padding: 80px var(--padding-inline-section)
-}
-
-.examples-header {
-    flex-direction: column;
-    gap: 20px;
-    text-align: center;
-}
-
-.examples-area {
-    justify-content: space-between;
-    margin-block: 30px;
-    flex-wrap: wrap;
-}
-
-.examples-card {
-    width: 23%;
-    position: relative;
-    height: 300px;
-    background: black;
-    background: linear-gradient(rgb(0, 0, 0, 0.1), rgb(0, 0, 0, 0.8)), url();
-    background-size: cover;
-    transition: 0.2s ease-out;
-}
-
-.examples-card:hover {
-    box-shadow: 0 0 10px #888;
-}
-
-.examples-card:nth-child(3) {
-    background: linear-gradient(rgb(0, 0, 0, 0.1), rgb(0, 0, 0, 0.8)), url(); 
-    background: linear-gradient(rgb(0, 0, 0, 0.1), rgb(0, 0, 0, 0.8));
-    background-size: cover;
-}
-
-.examples-card:nth-child(4) {
-    background: linear-gradient(rgb(0, 0, 0, 0.1), rgb(0, 0, 0, 0.8)), url();
-    background: linear-gradient(rgb(0, 0, 0, 0.1), rgb(0, 0, 0, 0.8));
-    background-size: cover;
-}
 
 .card-text {
     position: absolute;
@@ -333,7 +302,6 @@ header {
 footer {
     padding-block: 80px;
     background-color: #EFF0F0   ;
-    align-content: center;
 }
 
 .link-column {
