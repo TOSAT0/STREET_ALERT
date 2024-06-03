@@ -110,7 +110,7 @@ ul {
 
 .top-banner {
     background-image: url(); 
-    background-color: #236736;
+    background-color: #6BAF7D;
     background-size: 300px;
 }
 
@@ -132,7 +132,7 @@ ul {
 }
 
 .nav-links {
-    flex-basis: 730px;
+    flex-basis: 100%;
 }
 
 .nav-links ul {
@@ -148,9 +148,12 @@ ul {
 
 header {
     padding: 50px var(--padding-inline-section) 0;
+    padding-top: 5%;
+    padding-bottom: 20%;
 }
 
 .header-section {
+
     justify-content: center;
     gap: 20px;
 }
@@ -196,9 +199,7 @@ header {
 .features-section {
     margin-top: 50px;
     padding: 80px var(--padding-inline-section) 0;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    padding-bottom: 10%;
 }
 
 .features-header {
@@ -227,7 +228,7 @@ header {
 }
 
 .features-card img {
-    width: 160px;
+    width: 260px;
    
 }
 

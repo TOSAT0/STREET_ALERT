@@ -13,15 +13,7 @@
         overflow: initial;
     }
 
-    .nav-links {
-        position: absolute;
-        background-color: white;
-        left: -100%;
-        top: 100%;
-        width: 100%;
-        padding-block: 20px;
-        transition: 0.2s ease-in-out;
-    }
+    
 
     .nav-links.active {
         left: 0;
