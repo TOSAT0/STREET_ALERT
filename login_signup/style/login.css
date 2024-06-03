@@ -75,4 +75,6 @@ body {
 
 .contentButton{
     text-align: center;
+    padding-left: calc(50%+130px);
+    display: flex;
 }
