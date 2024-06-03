@@ -1,5 +1,6 @@
 body{
     background-color: #3c7a4e;
+    overflow-x: scroll;
 }
 table {
     background: white;
@@ -10,6 +11,7 @@ table {
     max-width: 170vh;
     padding:5px;
     width: 100%;
+    margin-top:100px;
   }
 
   th {
@@ -76,6 +78,12 @@ table {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.top-banner{
+  position: fixed;
+  width: 100%;
+  top:0%;
 }
 
 .NEW{
